@@ -58,6 +58,10 @@ export function CandidatePassButton({ refetch }: ChildProps) {
     let question_3_Score = question3_ML_Result
     let question_4_Score = question4_ML_Result
     let question_5_Score = question5_ML_Result
+    console.log('candidate_id_cs', candidate_id_cs)
+    console.log('candidate_id_cga', candidate_id_cga)
+    console.log('candidate_id_aga', candidate_id_aga)
+
     if (candidate_Type === 'CS') {
       if (!question1_Result.includes('0')) {
         question_1_Score = getQuestionResult(question1_Result)
@@ -208,9 +212,15 @@ export function CandidatePassButton({ refetch }: ChildProps) {
     <Dialog open={open} onOpenChange={setopen}>
       <DialogTrigger asChild>
         <button
+          // className={
+          //   'bg-gradient-to-r  focus:outline-none from-[#6bf4a4] from-0% to-[#34ceff] to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
+          // }
           className={
-            'bg-gradient-to-r  focus:outline-none from-[#6bf4a4] from-0% to-[#34ceff] to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
+            'bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm '
           }
+          style={{minWidth:'7vw',justifyContent:'center'}}
+
+
         >
           Passed
         </button>

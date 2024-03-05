@@ -6,7 +6,7 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
-  getPaginationRowModel,
+  // getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
@@ -58,6 +58,13 @@ type Users = {
 }
 
 const columns: ColumnDef<Users>[] = [
+  {
+    accessorKey: 'evaluator_id',
+    header: 'ID',
+    cell: ({ row }) => (
+      <div className='  font-medium capitalize '>{row.getValue('evaluator_id')}</div>
+    ),
+  },
   {
     accessorKey: 'name',
     header: 'Name',
@@ -246,7 +253,7 @@ export function UsersTable() {
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,

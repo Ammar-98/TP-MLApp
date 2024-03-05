@@ -42,9 +42,11 @@ const LoginForm = () => {
     })
 
     const data = await res.json()
+    console.log('data===>>>', data)
+
     if (data.access_token && data.user) {
-      setUser(data.access_token, data.user)
-      navigate(state.from ? state.from : '/')
+      setUser(data?.access_token, data.user)
+      navigate(state?.from ? state.from : '/')
     }
 
     if (data.detail) {

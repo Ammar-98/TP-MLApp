@@ -29,6 +29,14 @@ export const failCandidateFormSchema = z.object({
     'No Relevant CGA XP',
   ]),
 })
+export const pendingCandidateFormSchema = z.object({
+  pending_reason: z.enum([
+    'Invalid Creative Portfolio',
+    'Invalid ID',
+    'Invalid Name',
+    'Invalid Resume',
+  ]),
+})
 export const passCandidateFormSchema = z.object({
   email: z.string().email(),
   name: z.string().trim().nonempty('Name is required'),
