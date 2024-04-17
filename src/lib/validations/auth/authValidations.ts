@@ -27,6 +27,7 @@ export const failCandidateFormSchema = z.object({
     'Less than 1 year of AGA XP',
     'No Relevant AGA XP',
     'No Relevant CGA XP',
+    'Voice Intro - Poor Communication Skills'
   ]),
 })
 export const pendingCandidateFormSchema = z.object({
