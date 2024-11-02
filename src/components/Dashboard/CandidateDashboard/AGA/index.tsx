@@ -630,46 +630,6 @@ const CandidateTypeAGA = () => {
                 type="text"
               />
             </div>
-            <div className=" flex flex-col gap-y-2">
-              <Label className="text-sm" htmlFor="Currency">
-                Currency
-              </Label>
-              <Input
-                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
-                name="Currency"
-                value={data?.currency ? data.currency : "Not Provided"}
-                readOnly
-                type="text"
-              />
-            </div>
-            <div className=" flex flex-col gap-y-2">
-              <Label className="text-sm" htmlFor="Device Processor Specs">
-                Device Processor Specs
-              </Label>
-              <Input
-                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
-                name="Device Processor Specs"
-                value={data?.device_processor_specs ? data.device_processor_specs : "Not Provided"}
-                readOnly
-                type="text"
-              />
-            </div>
-            <div className=" flex flex-col gap-y-2">
-              <Label className="text-sm" htmlFor="Device Ram/Memory Capacity">
-                Device Ram/Memory Capacity
-              </Label>
-              <Input
-                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
-                name="Device Ram/Memory Capacity"
-                value={data?.device_ram_memory_capacity ? data.device_ram_memory_capacity : "Not Provided"}
-                readOnly
-                type="text"
-              />
-            </div>
-
-            
-            
-
 
             {/* <div className='flex gap-x-5 text-sm'>
               <div className='grow flex flex-col gap-y-2'>

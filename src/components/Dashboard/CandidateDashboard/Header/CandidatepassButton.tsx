@@ -64,7 +64,6 @@ export function CandidatePassButton({ refetch }: ChildProps) {
 
     if (candidate_Type === 'CS') {
       if (!question1_Result.includes('0')) {
-      
         question_1_Score = getQuestionResult(question1_Result)
       }
       if (!question2_Result.includes('0')) {
@@ -79,13 +78,6 @@ export function CandidatePassButton({ refetch }: ChildProps) {
       if (!question5_Result.includes('0')) {
         question_5_Score = getQuestionResult(question5_Result)
       }
-
-
-console.log('question1_Result', question1_Result)
-console.log('question_1_Score', question_1_Score)
-console.log('question1_ML_Result', question1_ML_Result)
-
-      return
 
       try {
         const res = await fetch(
