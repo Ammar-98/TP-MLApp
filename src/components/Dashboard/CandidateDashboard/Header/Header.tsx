@@ -29,6 +29,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { InviteToHireFlixButton } from "./InviteToHireFlix";
 
 interface ChildProps {
   refetch: () => Promise<any>; // Define the prop type for the refetch function
@@ -235,6 +236,7 @@ const Header = ({ refetch }: ChildProps) => {
         <PendingButton refetch={refetch} />
         <FailCandidateButton refetch={refetch} />
         <CandidatePassButton refetch={refetch} />
+        <InviteToHireFlixButton refetch={refetch}/>
       </div>
     </header>
   );
