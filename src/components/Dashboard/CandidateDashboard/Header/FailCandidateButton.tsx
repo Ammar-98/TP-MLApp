@@ -36,16 +36,16 @@ import {
 import { failingReasons } from '@/components/StaticData/FailingReason'
 import { useQuestionResultStore } from '@/store/useQuestionResultStore'
 
-const getQuestionResult = (score: string[]) => {
-  const sum = score.reduce((acc, val) => acc + parseFloat(val), 0)
+// const getQuestionResult = (score: string[]) => {
+//   const sum = score.reduce((acc, val) => acc + parseFloat(val), 0)
 
-  const result = (sum / 20) * 100
-  // console.log(result)
-  if (isNaN(result)) {
-    return 0
-  }
-  return parseInt(result?.toFixed(1).replace(/[.,]0$/, ''))
-}
+//   const result = (sum / 20) * 100
+//   // console.log(result)
+//   if (isNaN(result)) {
+//     return 0
+//   }
+//   return parseInt(result?.toFixed(1).replace(/[.,]0$/, ''))
+// }
 
 interface ChildProps {
   refetch: () => Promise<any> // Define the prop type for the refetch function
@@ -87,9 +87,9 @@ export function FailCandidateButton({ refetch }: ChildProps) {
     console.log('candidate_id_cs', candidate_id_cs)
     console.log('candidate_id_cga', candidate_id_cga)
     console.log('candidate_id_aga', candidate_id_aga)
-    console.log('getQuestionResult(question1_Result)', getQuestionResult(question1_Result))
-    console.log('getQuestionResult(question1_Result)', getQuestionResult(question2_Result))
-    console.log('getQuestionResult(question1_Result)', getQuestionResult(question3_Result))
+    // console.log('getQuestionResult(question1_Result)', getQuestionResult(question1_Result))
+    // console.log('getQuestionResult(question1_Result)', getQuestionResult(question2_Result))
+    // console.log('getQuestionResult(question1_Result)', getQuestionResult(question3_Result))
     console.log('question1_ML_Result', question1_ML_Result)
     console.log('question2_ML_Result', question2_ML_Result)
     console.log('question3_ML_Result', question3_ML_Result)
@@ -105,20 +105,20 @@ export function FailCandidateButton({ refetch }: ChildProps) {
       //   question4_Result,
       //   question5_Result,
       // ].some((arr) => arr.includes('0'))
-      if (!question1_Result.includes('0')) {
-        question_1_Score = getQuestionResult(question1_Result)
+      if (question1_Result != "") {
+        question_1_Score = Number(question1_Result);
       }
-      if (!question2_Result.includes('0')) {
-        question_2_Score = getQuestionResult(question2_Result)
+      if (question2_Result != "") {
+        question_2_Score = Number(question2_Result);
       }
-      if (!question3_Result.includes('0')) {
-        question_3_Score = getQuestionResult(question3_Result)
+      if (question3_Result != "") {
+        question_3_Score = Number(question3_Result);
       }
-      if (!question4_Result.includes('0')) {
-        question_4_Score = getQuestionResult(question4_Result)
+      if (question4_Result != "") {
+        question_4_Score = Number(question4_Result);
       }
-      if (!question5_Result.includes('0')) {
-        question_5_Score = getQuestionResult(question5_Result)
+      if (question5_Result != "") {
+        question_5_Score = Number(question5_Result);
       }
       try {
         const res = await fetch(
@@ -188,14 +188,14 @@ export function FailCandidateButton({ refetch }: ChildProps) {
         console.log(error)
       }
     } else {
-      if (!question1_Result.includes('0')) {
-        question_1_Score = getQuestionResult(question1_Result)
+      if (question1_Result != "") {
+        question_1_Score = Number(question1_Result);
       }
-      if (!question2_Result.includes('0')) {
-        question_2_Score = getQuestionResult(question2_Result)
+      if (question2_Result != "") {
+        question_2_Score = Number(question2_Result);
       }
-      if (!question3_Result.includes('0')) {
-        question_3_Score = getQuestionResult(question3_Result)
+      if (question3_Result != "") {
+        question_3_Score = Number(question3_Result);
       }
       try {
         const res = await fetch(

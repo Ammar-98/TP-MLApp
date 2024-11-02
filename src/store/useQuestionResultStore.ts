@@ -1,14 +1,15 @@
-import { ChangeEvent } from 'react'
+// import { ChangeEvent } from 'react'
+// import { string } from 'zod'
 import { create } from 'zustand'
 
 interface State {
   isLoading: boolean
   error: string | null
-  question1_Result: string[]
-  question2_Result: string[]
-  question3_Result: string[]
-  question4_Result: string[]
-  question5_Result: string[]
+  question1_Result: number|string
+  question2_Result: number|string
+  question3_Result: number|string
+  question4_Result: number|string
+  question5_Result: number|string
   question1_ML_Result: number
   question2_ML_Result: number
   question3_ML_Result: number
@@ -24,21 +25,21 @@ interface State {
 }
 
 interface Actions {
-  setQuestion1_Result: (result: string[]) => void
-  setQuestion2_Result: (result: string[]) => void
-  setQuestion3_Result: (result: string[]) => void
-  setQuestion4_Result: (result: string[]) => void
-  setQuestion5_Result: (result: string[]) => void
+  setQuestion1_Result: (result: number|string) => void
+  setQuestion2_Result: (result: number|string) => void
+  setQuestion3_Result: (result: number|string) => void
+  setQuestion4_Result: (result: number|string) => void
+  setQuestion5_Result: (result: number|string) => void
   setQuestion1_ML_Result: (result: number) => void
   setQuestion2_ML_Result: (result: number) => void
   setQuestion3_ML_Result: (result: number) => void
   setQuestion4_ML_Result: (result: number) => void
   setQuestion5_ML_Result: (result: number) => void
-  handleInputChange: (
-    event: ChangeEvent<HTMLInputElement>,
-    index: number,
-    range: number
-  ) => void
+  // handleInputChange: (
+  //   event: ChangeEvent<HTMLInputElement>,
+  //   index: number,
+  //   range: number
+  // ) => void
   setNextApplicant: () => void
   setPrevApplicant: () => void
   setAscApplicant: () => void
@@ -52,11 +53,11 @@ interface Actions {
 const INITIAL_STATE: State = {
   isLoading: false,
   error: null,
-  question1_Result: ['0', '0', '0'],
-  question2_Result: ['0', '0', '0'],
-  question3_Result: ['0', '0', '0'],
-  question4_Result: ['0', '0', '0', '0'],
-  question5_Result: ['0', '0', '0', '0'],
+  question1_Result: '',
+  question2_Result: '',
+  question3_Result: '',
+  question4_Result: '',
+  question5_Result: '',
   question1_ML_Result: 0,
   question2_ML_Result: 0,
   question3_ML_Result: 0,
@@ -72,6 +73,12 @@ const INITIAL_STATE: State = {
 }
 
 export const useQuestionResultStore = create<State & Actions>((set, get) => ({
+
+
+  
+  
+
+
   isLoading: INITIAL_STATE.isLoading,
   error: INITIAL_STATE.error,
   candidate_Type: INITIAL_STATE.candidate_Type,
@@ -91,38 +98,37 @@ export const useQuestionResultStore = create<State & Actions>((set, get) => ({
   question3_ML_Result: INITIAL_STATE.question3_ML_Result,
   question4_ML_Result: INITIAL_STATE.question4_ML_Result,
   question5_ML_Result: INITIAL_STATE.question5_ML_Result,
-  handleInputChange: (event, index, range) => {
-    const inputValue = parseInt(
-      parseInt(event.target.value) === range
-        ? range.toString()
-        : event.target.value[event.target.value.length - 1]
-    )
-    // console.log(inputValue)
-    if (!isNaN(inputValue) && inputValue >= 0 && inputValue <= range) {
-      // console.log(event.target.value)
-      if (event.target.id === 'question_1_grade') {
-        const updatedQuestion1Array = [...get().question1_Result]
-        updatedQuestion1Array[index] = inputValue.toString()
-        get().setQuestion1_Result(updatedQuestion1Array)
-      } else if (event.target.id === 'question_2_grade') {
-        const updatedQuestion2Array = [...get().question2_Result]
-        updatedQuestion2Array[index] = inputValue.toString()
-        get().setQuestion2_Result(updatedQuestion2Array)
-      } else if (event.target.id === 'question_3_grade') {
-        const updatedQuestion3Array = [...get().question3_Result]
-        updatedQuestion3Array[index] = inputValue.toString()
-        get().setQuestion3_Result(updatedQuestion3Array)
-      } else if (event.target.id === 'question_4_grade') {
-        const updatedQuestion4Array = [...get().question4_Result]
-        updatedQuestion4Array[index] = inputValue.toString()
-        get().setQuestion4_Result(updatedQuestion4Array)
-      } else {
-        const updatedQuestion5Array = [...get().question5_Result]
-        updatedQuestion5Array[index] = inputValue.toString()
-        get().setQuestion5_Result(updatedQuestion5Array)
-      }
-    }
-  },
+  // handleInputChange: (event, index, range) => {
+  //   const inputValue = parseInt(
+  //     parseInt(event.target.value) === range
+  //       ? range.toString()
+  //       : event.target.value[event.target.value.length - 1]
+  //   )
+  //   console.log(inputValue)
+  //   if (!isNaN(inputValue) && inputValue >= 0 && inputValue <= range) {
+  //     if (event.target.id === 'question_1_grade') {
+  //       const updatedQuestion1Array = [...get().question1_Result]
+  //       updatedQuestion1Array[index] = inputValue.toString()
+  //       get().setQuestion1_Result(updatedQuestion1Array)
+  //     } else if (event.target.id === 'question_2_grade') {
+  //       const updatedQuestion2Array = [...get().question2_Result]
+  //       updatedQuestion2Array[index] = inputValue.toString()
+  //       get().setQuestion2_Result(updatedQuestion2Array)
+  //     } else if (event.target.id === 'question_3_grade') {
+  //       const updatedQuestion3Array = [...get().question3_Result]
+  //       updatedQuestion3Array[index] = inputValue.toString()
+  //       get().setQuestion3_Result(updatedQuestion3Array)
+  //     } else if (event.target.id === 'question_4_grade') {
+  //       const updatedQuestion4Array = [...get().question4_Result]
+  //       updatedQuestion4Array[index] = inputValue.toString()
+  //       get().setQuestion4_Result(updatedQuestion4Array)
+  //     } else {
+  //       const updatedQuestion5Array = [...get().question5_Result]
+  //       updatedQuestion5Array[index] = inputValue.toString()
+  //       get().setQuestion5_Result(updatedQuestion5Array)
+  //     }
+  //   }
+  // },
   setQuestion1_ML_Result: (result) => {
     try {
       return set(() => ({

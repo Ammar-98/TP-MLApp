@@ -423,7 +423,7 @@ const CandidateTypeCA = () => {
                 {data?.Cover_Letter ? data.Cover_Letter : "Not Provided"}
               </div>
             </div> */}
-            <div className=" flex flex-col gap-y-2">
+            {/* <div className=" flex flex-col gap-y-2">
               <Label className="text-sm" htmlFor="voiceintro">
                 Voice Introduction Link
               </Label>
@@ -432,9 +432,8 @@ const CandidateTypeCA = () => {
                 {data?.please_record_a_short_loom_video_introducing_yourself
                   ? data.please_record_a_short_loom_video_introducing_yourself
                   : "Not Provided"}
-                {/* {"Not Provided"} */}
               </div>
-            </div>
+            </div> */}
 
             <div className=" lg:text-sm text-xs text-center flex gap-x-3 justify-between my-4">
               <button
@@ -447,7 +446,7 @@ const CandidateTypeCA = () => {
               >
                 Application Resume Link
               </button>
-              <button
+              {/* <button
                 onClick={() =>
                   data?.valid_id
                     ? window.open(data?.valid_id)
@@ -456,7 +455,7 @@ const CandidateTypeCA = () => {
                 className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
               >
                 Valid ID Upload
-              </button>
+              </button> */}
 
               <button
                 onClick={() =>
@@ -501,13 +500,13 @@ const CandidateTypeCA = () => {
               </Dialog> */}
               <button
                 onClick={() =>
-                  data?.Typing_Quiz_Link
-                    ? window.open(data?.Typing_Quiz_Link)
-                    : alert("Typing Quiz Link Not Found")
+                  data?.please_record_a_short_loom_video_introducing_yourself
+                    ? window.open(data?.please_record_a_short_loom_video_introducing_yourself)
+                    : alert("Voice Introduction Link Not Found")
                 }
                 className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
               >
-                Typing Quiz Link
+                Voice Introduction Link
               </button>
               {/* <Dialog>
                 <DialogTrigger asChild>
@@ -622,6 +621,42 @@ const CandidateTypeCA = () => {
                 className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
                 name="Rehirable"
                 value={data?.rehirable ? data.rehirable : "Not Provided"}
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="Currency">
+                Currency
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="Currency"
+                value={data?.currency ? data.currency : "Not Provided"}
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="Device Processor Specs">
+                Device Processor Specs
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="Device Processor Specs"
+                value={data?.device_processor_specs ? data.device_processor_specs : "Not Provided"}
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="Device Ram/Memory Capacity">
+                Device Ram/Memory Capacity
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="Device Ram/Memory Capacity"
+                value={data?.device_ram_memory_capacity ? data.device_ram_memory_capacity : "Not Provided"}
                 readOnly
                 type="text"
               />

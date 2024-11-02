@@ -574,7 +574,7 @@ const CandidateTypeCGA = () => {
               >
                 Speed Test Link
               </button>
-              <button
+              {/* <button
                onClick={() =>
                 data?.valid_id
                   ? window.open(data?.valid_id)
@@ -584,7 +584,7 @@ const CandidateTypeCGA = () => {
                 className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
               >
                 Valid ID Upload
-              </button>
+              </button> */}
 
               {/* <Dialog>
                 <DialogTrigger asChild>
@@ -732,6 +732,42 @@ const CandidateTypeCGA = () => {
                 className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
                 name="Rehirable"
                 value={data?.rehirable ? data.rehirable : "Not Provided"}
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="Currency">
+                Currency
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="Currency"
+                value={data?.currency ? data.currency : "Not Provided"}
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="Device Processor Specs">
+                Device Processor Specs
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="Device Processor Specs"
+                value={data?.device_processor_specs ? data.device_processor_specs : "Not Provided"}
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="Device Ram/Memory Capacity">
+                Device Ram/Memory Capacity
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="Device Ram/Memory Capacity"
+                value={data?.device_ram_memory_capacity ? data.device_ram_memory_capacity : "Not Provided"}
                 readOnly
                 type="text"
               />

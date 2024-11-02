@@ -37,16 +37,16 @@ import {
 import { useQuestionResultStore } from "@/store/useQuestionResultStore";
 import { PendingReasons } from "@/components/StaticData/PendingReasons";
 
-const getQuestionResult = (score: string[]) => {
-  const sum = score.reduce((acc, val) => acc + parseFloat(val), 0);
+// const getQuestionResult = (score: string[]) => {
+//   const sum = score.reduce((acc, val) => acc + parseFloat(val), 0);
 
-  const result = (sum / 20) * 100;
-  // console.log(result)
-  if (isNaN(result)) {
-    return 0;
-  }
-  return parseInt(result?.toFixed(1).replace(/[.,]0$/, ""));
-};
+//   const result = (sum / 20) * 100;
+//   // console.log(result)
+//   if (isNaN(result)) {
+//     return 0;
+//   }
+//   return parseInt(result?.toFixed(1).replace(/[.,]0$/, ""));
+// };
 
 interface ChildProps {
   refetch: () => Promise<any>; // Define the prop type for the refetch function
@@ -98,20 +98,20 @@ export function PendingButton({ refetch }: ChildProps) {
       //   question4_Result,
       //   question5_Result,
       // ].some((arr) => arr.includes('0'))
-      if (!question1_Result.includes("0")) {
-        question_1_Score = getQuestionResult(question1_Result);
+      if (question1_Result != "") {
+        question_1_Score = Number(question1_Result);
       }
-      if (!question2_Result.includes("0")) {
-        question_2_Score = getQuestionResult(question2_Result);
+      if (question2_Result != "") {
+        question_2_Score = Number(question2_Result);
       }
-      if (!question3_Result.includes("0")) {
-        question_3_Score = getQuestionResult(question3_Result);
+      if (question3_Result != "") {
+        question_3_Score = Number(question3_Result);
       }
-      if (!question4_Result.includes("0")) {
-        question_4_Score = getQuestionResult(question4_Result);
+      if (question4_Result != "") {
+        question_4_Score = Number(question4_Result);
       }
-      if (!question5_Result.includes("0")) {
-        question_5_Score = getQuestionResult(question5_Result);
+      if (question5_Result != "") {
+        question_5_Score = Number(question5_Result);
       }
       try {
        
@@ -183,14 +183,14 @@ export function PendingButton({ refetch }: ChildProps) {
         console.log(error);
       }
     } else {
-      if (!question1_Result.includes("0")) {
-        question_1_Score = getQuestionResult(question1_Result);
+      if (question1_Result != "") {
+        question_1_Score = Number(question1_Result);
       }
-      if (!question2_Result.includes("0")) {
-        question_2_Score = getQuestionResult(question2_Result);
+      if (question2_Result != "") {
+        question_2_Score = Number(question2_Result);
       }
-      if (!question3_Result.includes("0")) {
-        question_3_Score = getQuestionResult(question3_Result);
+      if (question3_Result != "") {
+        question_3_Score = Number(question3_Result);
       }
       try {
         
