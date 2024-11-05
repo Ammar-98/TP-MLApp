@@ -63,10 +63,10 @@ const Sidebar = () => {
               location.pathname == "/candidate-dashboard/CS"
                 ? "#69C920"
                 : "white",
-                color:
-                location.pathname == "/candidate-dashboard/CS"
-                  ? "white"
-                  : "black",
+            color:
+              location.pathname == "/candidate-dashboard/CS"
+                ? "white"
+                : "black",
           }}
         >
           CS
@@ -103,11 +103,10 @@ const Sidebar = () => {
               location.pathname == "/candidate-dashboard/CGA"
                 ? "#69C920"
                 : "white",
-                color:
-                location.pathname == "/candidate-dashboard/CGA"
-                  ? "white"
-                  : "black",
-                
+            color:
+              location.pathname == "/candidate-dashboard/CGA"
+                ? "white"
+                : "black",
           }}
         >
           CGA
@@ -118,29 +117,31 @@ const Sidebar = () => {
         >
           {/* <AnalyticsIcon /> */}
           <div className="w-11 h-11  border-[#69C920] border-2 rounded-full flex items-center justify-center">
-          <ClipboardListIcon className=" w-58 h-8" strokeWidth={1.5} color="#69C920"/>
+            <ClipboardListIcon
+              className=" w-58 h-8"
+              strokeWidth={1.5}
+              color="#69C920"
+            />
           </div>
-          
         </button>
-      
       </div>
       <TooltipProvider delayDuration={200}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <button
-                onClick={() => handleLogout()}
-                className="text-[#018037] flex justify-center hover:scale-110 duration-500"
-              >
-                <div className="w-11 h-11   border-slate-200 border-2 rounded-full flex items-center justify-center">
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => handleLogout()}
+              className="text-[#018037] flex justify-center hover:scale-110 duration-500"
+            >
+              <div className="w-11 h-11   border-slate-200 border-2 rounded-full flex items-center justify-center">
                 <LogOut className=" w-5 h-5" color="red" />
-                </div>
-              </button>
-            </TooltipTrigger>
-            <TooltipContent className=" bg-red-400 text-white">
-              <p>Log Out</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+              </div>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent className=" bg-red-400 text-white">
+            <p>Log Out</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   );
 };
