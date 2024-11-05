@@ -1,9 +1,7 @@
 import { useAuthStore } from "@/store/useAuthStore";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut } from "lucide-react";
+import { ClipboardListIcon, LogOut } from "lucide-react";
 import { AnalyticsIcon } from "@/lib/Icons";
-
-
 
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -17,11 +15,9 @@ import { useQuestionResultStore } from "@/store/useQuestionResultStore";
 import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
-
   const location = useLocation();
   const tempp = () => {
-    
-    console.log("first",location.pathname);
+    console.log("first", location.pathname);
   };
 
   useEffect(() => {
@@ -44,10 +40,10 @@ const Sidebar = () => {
     <div
       className={` ${access_token ? "sticky" : "hidden"} ${
         user?.role !== "manager" ? "h-screen" : "h-auto"
-      }  bg-[#f1f5f5] flex  w-min  items-start pt-5 `}
+      }   bg-white border-r flex  w-min  pt-5 flex-col justify-between items-center pb-5 `}
     >
-      <div className="border-2 border-gray-500 border-dashed rounded-full flex flex-col gap-y-4 items-center py-7 mx-2">
-        <Avatar className=" border-dashed border-[gray] border-[3px] w-12 h-12">
+      <div className="   rounded-full flex flex-col gap-y-4 items-center  mx-2">
+        <Avatar className="   w-11 h-11">
           <AvatarImage
             src={`https://api.dicebear.com/7.x/thumbs/svg?seed=${user?.user_name}&scale=160&radius=50`}
             alt="AVATAR"
@@ -61,8 +57,17 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/CS")
               : navigate("/admin-dashboard")
           }
-          className=" hover:scale-110 duration-500 rounded-full border-dashed border-[gray] border-[3px] w-12 h-12"
-          style={{background: location.pathname=='/candidate-dashboard/CS' ? '#86fe97':'white'}}
+          className=" hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[2px] w-11 h-11"
+          style={{
+            background:
+              location.pathname == "/candidate-dashboard/CS"
+                ? "#69C920"
+                : "white",
+                color:
+                location.pathname == "/candidate-dashboard/CS"
+                  ? "white"
+                  : "black",
+          }}
         >
           CS
         </button>
@@ -72,8 +77,17 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/AGA")
               : navigate("/admin-dashboard")
           }
-          className="  hover:scale-110 duration-500 rounded-full border-dashed border-[gray] border-[3px] w-12 h-12"
-          style={{background: location.pathname=='/candidate-dashboard/AGA' ? '#86fe97':'white'}}
+          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[2px] w-11 h-11"
+          style={{
+            background:
+              location.pathname == "/candidate-dashboard/AGA"
+                ? "#69C920"
+                : "white",
+            color:
+              location.pathname == "/candidate-dashboard/AGA"
+                ? "white"
+                : "black",
+          }}
         >
           AGA
         </button>
@@ -83,8 +97,18 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/CGA")
               : navigate("/admin-dashboard")
           }
-          className="  hover:scale-110 duration-500 rounded-full border-dashed border-[gray] border-[3px] w-12 h-12"
-          style={{background: location.pathname=='/candidate-dashboard/CGA' ? '#86fe97':'white'}}
+          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[2px] w-11 h-11"
+          style={{
+            background:
+              location.pathname == "/candidate-dashboard/CGA"
+                ? "#69C920"
+                : "white",
+                color:
+                location.pathname == "/candidate-dashboard/CGA"
+                  ? "white"
+                  : "black",
+                
+          }}
         >
           CGA
         </button>
@@ -92,16 +116,24 @@ const Sidebar = () => {
           onClick={() => navigate("/analytics")}
           className=" hover:scale-110 duration-500"
         >
-          <AnalyticsIcon />
+          {/* <AnalyticsIcon /> */}
+          <div className="w-11 h-11  border-[#69C920] border-2 rounded-full flex items-center justify-center">
+          <ClipboardListIcon className=" w-58 h-8" strokeWidth={1.5} color="#69C920"/>
+          </div>
+          
         </button>
-        <TooltipProvider delayDuration={200}>
+      
+      </div>
+      <TooltipProvider delayDuration={200}>
           <Tooltip>
             <TooltipTrigger asChild>
               <button
                 onClick={() => handleLogout()}
                 className="text-[#018037] flex justify-center hover:scale-110 duration-500"
               >
-                <LogOut className=" w-9 h-9" />
+                <div className="w-11 h-11   border-slate-200 border-2 rounded-full flex items-center justify-center">
+                <LogOut className=" w-5 h-5" color="red" />
+                </div>
               </button>
             </TooltipTrigger>
             <TooltipContent className=" bg-red-400 text-white">
@@ -109,7 +141,6 @@ const Sidebar = () => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-      </div>
     </div>
   );
 };

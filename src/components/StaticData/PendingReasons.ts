@@ -3,6 +3,8 @@ export const PendingReasons = [
   'Invalid ID',
   'Invalid Name',
   'Invalid Resume',
+  'Invalid SpeedTest link',
+  'Invalid Vocaroo Voice Recording'
     
   ]
   

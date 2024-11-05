@@ -94,7 +94,7 @@ export function CandidatePassButton({ refetch }: ChildProps) {
       console.log("question_5_Score", question_5_Score);
 
 
-return
+
 
 
       try {
