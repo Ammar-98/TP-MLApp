@@ -239,7 +239,7 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
           //   'bg-gradient-to-r  focus:outline-none from-[#6bf4a4] from-0% to-[#34ceff] to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
           // }
           className={
-            "bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm "
+            "bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm border-black border-2 "
           }
           style={{ minWidth: "7vw", justifyContent: "center" }}
         >
@@ -248,9 +248,9 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] ">
         <DialogHeader>
-          <DialogTitle>Invite to Hireflix</DialogTitle>
-          <DialogDescription>
-            Click Submit button to invite this candidate to Hireflix
+          <DialogTitle className=" w-full flex items-center justify-center">Confirmation</DialogTitle>
+          <DialogDescription className=" w-full flex items-center justify-center px-3 text-center text-black py-4">
+            Are you sure you want to invite this Candidate to Hireflix?
           </DialogDescription>
         </DialogHeader>
         <Button
@@ -261,7 +261,7 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
           //   }
           asChild
           onClick={() => onSubmit()}
-          className=" bg-[#69C920] px-6 text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full"
+          className=" bg-[#69C920] px-6 text-lg rounded-full flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full"
           type="submit"
         >
           {/* {form.formState.isSubmitting ? (
@@ -270,8 +270,19 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
               <Loader2 className='mr-2 h-4 w-4 animate-spin mt-1' />
             </button>
           ) : ( */}
-          <button>Submit</button>
+          <button>Pass</button>
           {/* )} */}
+        </Button>
+        <Button
+        
+          asChild
+          onClick={() => setopen(false)}
+          className=" bg-white text-black border-black border rounded-full  px-6 text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full hover:bg-slate-200"
+          // type="submit"
+        >
+        
+          <button>Cancel</button>
+
         </Button>
       </DialogContent>
     </Dialog>

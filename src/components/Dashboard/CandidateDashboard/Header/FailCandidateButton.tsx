@@ -275,7 +275,7 @@ export function FailCandidateButton({ refetch }: ChildProps) {
           //   'bg-gradient-to-r  focus:outline-none from-[#8800f3] from-0% to-red-500 to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
           // }
           className={
-            'bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm '
+            'bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm  border-2 border-[#FF3434]'
           }
           style={{minWidth:'7vw',justifyContent:'center'}}
         >
@@ -284,7 +284,8 @@ export function FailCandidateButton({ refetch }: ChildProps) {
       </DialogTrigger>
       <DialogContent className='sm:max-w-[425px] '>
         <DialogHeader>
-          <DialogTitle>Failing Candidate</DialogTitle>
+          <DialogTitle
+          className=" w-full flex items-center justify-center">Failed Candidate</DialogTitle>
           <DialogDescription>
             Select a Reason for Failing this Candidate
           </DialogDescription>
@@ -321,7 +322,7 @@ export function FailCandidateButton({ refetch }: ChildProps) {
             <Button
               disabled={form.formState.isSubmitting || !form.formState.isValid}
               asChild
-              className=' bg-[#69C920] px-6 text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full'
+              className=' bg-[#69C920] rounded-full px-6 text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full'
               type='submit'
             >
               {form.formState.isSubmitting ? (
@@ -330,7 +331,7 @@ export function FailCandidateButton({ refetch }: ChildProps) {
                   <Loader2 className='mr-2 h-4 w-4 animate-spin mt-1' />
                 </button>
               ) : (
-                <button>Submit</button>
+                <button>Confirm</button>
               )}
             </Button>
           </form>

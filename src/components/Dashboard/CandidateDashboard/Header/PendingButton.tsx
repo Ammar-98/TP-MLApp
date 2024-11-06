@@ -270,7 +270,7 @@ export function PendingButton({ refetch }: ChildProps) {
           //   'bg-gradient-to-r  focus:outline-none from-[#8800f3] from-0% to-red-500 to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
           // }
           className={
-            "bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm "
+            "bg-[white] text-black text-sm  flex items-center gap-x-2 rounded-2xl py-1 px-6 shadow-sm  border-2 border-[#FFD236]"
           }
           style={{ minWidth: "7vw", justifyContent: "center" }}
         >
@@ -279,7 +279,8 @@ export function PendingButton({ refetch }: ChildProps) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] ">
         <DialogHeader>
-          <DialogTitle>Placing Application on pending</DialogTitle>
+          <DialogTitle 
+          className=" w-full flex items-center justify-center">Placing Application on pending</DialogTitle>
           <DialogDescription>
             Select a Reason for placing this application on pending
           </DialogDescription>
@@ -316,7 +317,7 @@ export function PendingButton({ refetch }: ChildProps) {
             <Button
               disabled={form.formState.isSubmitting || !form.formState.isValid}
               asChild
-              className=" bg-[#69C920] px-6 text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full"
+              className=" bg-[#69C920] px-6 rounded-full text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full"
               type="submit"
             >
               {form.formState.isSubmitting ? (
@@ -325,9 +326,20 @@ export function PendingButton({ refetch }: ChildProps) {
                   <Loader2 className="mr-2 h-4 w-4 animate-spin mt-1" />
                 </button>
               ) : (
-                <button>Submit</button>
+                <button>Confirm</button>
               )}
             </Button>
+            {/* <Button
+        
+        asChild
+        onClick={() => setopen(false)}
+        className=" bg-white text-black border-black border rounded-full  px-6 text-lg flex items-center  transition-all disabled:bg-gray-500 disabled:cursor-not-allowed gap-1 w-full hover:bg-slate-200"
+        // type="submit"
+      >
+      
+        <button>Cancel</button>
+
+      </Button> */}
           </form>
         </Form>
       </DialogContent>

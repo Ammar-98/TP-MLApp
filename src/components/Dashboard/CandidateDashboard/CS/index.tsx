@@ -12,6 +12,7 @@ import { useQuestionResultStore } from "@/store/useQuestionResultStore";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import GradingRubicSectionCS from "../GradingRubicSectionCS";
+import { ExternalLink } from "lucide-react";
 
 const CandidateTypeCA = () => {
   const { access_token } = useAuthStore();
@@ -28,6 +29,16 @@ const CandidateTypeCA = () => {
     setQuestion5_ML_Result,
     candidate_id_cs,
     ascApplication,
+    question1_Result,
+    question2_Result,
+    question3_Result,
+    question4_Result,
+    question5_Result,
+    setQuestion1_Result,
+    setQuestion2_Result,
+    setQuestion3_Result,
+    setQuestion4_Result,
+    setQuestion5_Result,
   } = useQuestionResultStore();
   const [questions, setquestions] = useState([""]);
 
@@ -118,6 +129,15 @@ const CandidateTypeCA = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    console.log("changed");
+    setQuestion1_Result("");
+    setQuestion2_Result("");
+    setQuestion3_Result("");
+    setQuestion4_Result("");
+    setQuestion5_Result("");
+  }, [window.location.pathname]);
+
   if (isLoading || isFetching)
     return (
       <div className="grid place-items-center h-screen w-full bg-gray-200">
@@ -148,7 +168,8 @@ const CandidateTypeCA = () => {
   return (
     <div className=" flex flex-col max-h-screen w-full">
       <Header refetch={refetch} />
-      {/* <div className=" w-full  flex h-[90vh] bg-[#F1F5F5]">
+      <div className=" w-full  flex h-[93vh] bg-[#F1F5F5]">
+        
         <div className=" w-[60%]   py-7 px-7 overflow-y-scroll">
           <div className=" text-black text-lg font-semibold">
             CS Quiz Questionnaire
@@ -232,8 +253,139 @@ const CandidateTypeCA = () => {
                     Update your Score Here:
                   </div>
                   <div className=" mt-1 flex ">
-                    <div className="border-[#69C920] py-2 px-4 bg-white rounded border-2">
-                      89
+                    <div className="border-[#69C920]  bg-white rounded border-2">
+                      <div className="flex h-7 w-20 rounded-md  justify-center">
+                        {index == 0 ? (
+                          <input
+                            onKeyDown={(e) => {
+                              if (e.key === "Backspace") {
+                                e.preventDefault(); // Prevent the Backspace key from navigating back
+                                setQuestion1_Result("");
+                              }
+                            }}
+                            type="number"
+                            name="question_1_grade"
+                            id="question_1_grade"
+                            className=" w-full text-center focus:outline-none border bg-white min-w-0    text-gray-900  sm:text-sm sm:leading-6"
+                            placeholder="0"
+                            min={0}
+                            max={100}
+                            value={
+                              question1_Result == "0" ? "0" : question1_Result
+                            }
+                            onChange={(e) =>
+                              Number(e.target.value) <= 100 &&
+                              Number(e.target.value) > 0
+                                ? setQuestion1_Result(e.target.value)
+                                : null
+                            }
+                          />
+                        ) : index == 1 ? (
+                          <input
+                            onKeyDown={(e) => {
+                              if (e.key === "Backspace") {
+                                e.preventDefault(); // Prevent the Backspace key from navigating back
+                                setQuestion2_Result("");
+                              }
+                            }}
+                            type="number"
+                            name="question_2_grade"
+                            id="question_2_grade"
+                            className="  w-full text-center focus:outline-none bg-white  rounded-none rounded-l-md  border text-gray-900  sm:text-sm sm:leading-6"
+                            placeholder="0"
+                            min={0}
+                            max={9}
+                            value={
+                              question2_Result === "0" ? "0" : question2_Result
+                            }
+                            onChange={(e) =>
+                              Number(e.target.value) <= 100 &&
+                              Number(e.target.value) > 0
+                                ? setQuestion2_Result(e.target.value)
+                                : null
+                            }
+                          />
+                        ) : index == 2 ? (
+                          <input
+                            onKeyDown={(e) => {
+                              if (e.key === "Backspace") {
+                                e.preventDefault(); // Prevent the Backspace key from navigating back
+                                setQuestion3_Result("");
+                              }
+                            }}
+                            type="number"
+                            name="question_3_grade"
+                            id="question_3_grade"
+                            className=" w-full text-center focus:outline-none bg-white   border text-gray-900  sm:text-sm sm:leading-6"
+                            placeholder="0"
+                            min={0}
+                            max={9}
+                            value={
+                              question3_Result === "0" ? "0" : question3_Result
+                            }
+                            onChange={(e) =>
+                              Number(e.target.value) <= 100 &&
+                              Number(e.target.value) > 0
+                                ? setQuestion3_Result(e.target.value)
+                                : null
+                            }
+                          />
+                        ) : index == 3 ? (
+                          <input
+                            onKeyDown={(e) => {
+                              if (e.key === "Backspace") {
+                                e.preventDefault(); // Prevent the Backspace key from navigating back
+                                setQuestion4_Result("");
+                              }
+                            }}
+                            type="number"
+                            name="question_1_grade"
+                            id="question_1_grade"
+                            className=" w-full text-center focus:outline-none bg-white  rounded-none rounded-l-md  border  text-gray-900  sm:text-sm sm:leading-6"
+                            placeholder="0"
+                            min={0}
+                            max={100}
+                            value={
+                              question4_Result === "0" ? "0" : question4_Result
+                            }
+                            onChange={(e) =>
+                              Number(e.target.value) <= 100 &&
+                              Number(e.target.value) > 0
+                                ? setQuestion4_Result(e.target.value)
+                                : null
+                            }
+                          />
+                        ) : index == 4 ? (
+                          <input
+                            onKeyDown={(e) => {
+                              if (e.key === "Backspace") {
+                                e.preventDefault(); // Prevent the Backspace key from navigating back
+                                setQuestion5_Result("");
+                              }
+                            }}
+                            type="number"
+                            name="question_5_grade"
+                            id="question_5_grade"
+                            className="w-full text-center focus:outline-none bg-white rounded-none rounded-l-md  border text-gray-900  sm:text-sm sm:leading-6"
+                            placeholder="0"
+                            min={0}
+                            max={9}
+                            value={
+                              question5_Result === "0" ? "0" : question5_Result
+                            }
+                            onChange={(e) =>
+                              Number(e.target.value) <= 100 &&
+                              Number(e.target.value) > 0
+                                ? setQuestion5_Result(e.target.value)
+                                : null
+                            }
+                          />
+                        ) : (
+                          <div>6</div>
+                        )}
+
+                       
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -260,9 +412,327 @@ const CandidateTypeCA = () => {
             Type: {data?.candidate_type}
           </div>
           <div className=" pt-4 text-[14px] pb-2">Links</div>
+          <div className=" flex flex-col gap-3">
+            <div
+              onClick={() =>
+                data?.please_record_a_short_loom_video_introducing_yourself
+                  ? window.open(
+                      data?.please_record_a_short_loom_video_introducing_yourself
+                    )
+                  : alert("Voice Introduction Link Not Found")
+              }
+              className=" flex gap-2 text-[14px]  border border-[#69C920] rounded-full w-[200px]  px-4 justify-between py-1 bg-white cursor-pointer "
+            >
+              Voice Introduction{" "}
+              <ExternalLink color="#69C920" strokeWidth={1.2} size={20} />
+            </div>
+            <div
+              onClick={() =>
+                data?.Speedtest_Link
+                  ? window.open(data?.Speedtest_Link)
+                  : alert("Speed Test Link Not Found")
+              }
+              className=" flex gap-2 text-[14px]  border border-[#69C920] rounded-full w-[200px] px-4 justify-between  py-1 bg-white cursor-pointer"
+            >
+              Speed Test{" "}
+              <ExternalLink color="#69C920" strokeWidth={1.2} size={20} />
+            </div>
+            <div
+              onClick={() =>
+                data?.Applicant_Resume
+                  ? window.open(data?.Applicant_Resume)
+                  : alert("Application Resume Link Not Found")
+              }
+              className=" flex gap-2 text-[14px]  border border-[#69C920] rounded-full w-[200px] px-4 justify-between  py-1 bg-white cursor-pointer"
+            >
+              Resume{" "}
+              <ExternalLink color="#69C920" strokeWidth={1.2} size={20} />
+            </div>
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">Ticket Name</div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Last_Name && data.First_Name
+                  ? data.First_Name + ` ` + data.Last_Name
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">Email</div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={data?.Email_Address ? data.Email_Address : "Not Provided"}
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">Phone</div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={data?.phonenumber ? data.phonenumber : "Not Provided"}
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Skills Assessment Score
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Skill_Assesment_Score
+                  ? data.Skill_Assesment_Score
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Years of Customer Service Experience
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Years_CS_Experience
+                  ? data.Years_CS_Experience
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              What is your availability?
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={data?.Availability ? data.Availability : "Not Provided"}
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              What is your current employment status?
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Current_Employment_Status
+                  ? data.Current_Employment_Status
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Existing Commitments/Obligations
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Existing_Commitment
+                  ? data.Existing_Commitment
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              If Hired, How Soon Would You Be Able To Get Started?
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Tentative_Start_Date
+                  ? data.Tentative_Start_Date
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              What country are you applying from?
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={data?.Country ? data.Country : "Not Provided"}
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Years of E-commerce Experience
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Year_Ecom_Experience
+                  ? data.Year_Ecom_Experience
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Software Tool Experience
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Software_Tool_Experience
+                  ? data.Software_Tool_Experience
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Available To Work Graveyard? (9AM - 6PM EST/PST)
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Graveyard_Availability
+                  ? data.Graveyard_Availability
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Currently Studying Or Planning To Study
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.Studying_Planning_Studying
+                  ? data.Studying_Planning_Studying
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">Rehirable</div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={data?.rehirable ? data.rehirable : "Not Provided"}
+              readOnly
+            />
+          </div>
+
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">Currency</div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={data?.currency ? data.currency : "Not Provided"}
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Device Processor Specs
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.device_processor_specs
+                  ? data.device_processor_specs
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
+          <div>
+            <div className=" pt-4 text-[14px] pb-1  ">
+              Device Ram/Memory Capacity
+            </div>
+
+            <Input
+              className="bg-white text-black text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full"
+              name="lastName"
+              type="text"
+              value={
+                data?.device_ram_memory_capacity
+                  ? data.device_ram_memory_capacity
+                  : "Not Provided"
+              }
+              readOnly
+            />
+          </div>
         </div>
-      </div> */}
-      <div
+      </div>
+
+      {/* <div
         style={{
           backgroundImage: `linear-gradient(
     90deg,
@@ -694,7 +1164,7 @@ const CandidateTypeCA = () => {
           </div>
         </section>
         <GradingRubicSectionCS />
-      </div>
+      </div> */}
     </div>
   );
 };

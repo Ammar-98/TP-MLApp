@@ -86,7 +86,7 @@ const Header = ({ refetch }: ChildProps) => {
   };
   return (
     <header
-      className=" flex gap-x-10 w-full px-10  bg-white h-[10vh]  border-b border-slate-300 "
+      className=" flex gap-x-10 w-full px-10  bg-white h-[7vh]  border-b border-slate-300 "
       style={{
         // paddingBottom: "1vh",
 
@@ -177,12 +177,12 @@ const Header = ({ refetch }: ChildProps) => {
         </div>
       </div>
 
-      {/* <div className="flex w-full gap-x-2 items-center justify-end">
+      <div className="flex w-full gap-x-2 items-center justify-end">
+        <InviteToHireFlixButton refetch={refetch} />
         <PendingButton refetch={refetch} />
         <FailCandidateButton refetch={refetch} />
         <CandidatePassButton refetch={refetch} />
-        <InviteToHireFlixButton refetch={refetch} />
-      </div> */}
+      </div>
     </header>
   );
 };
