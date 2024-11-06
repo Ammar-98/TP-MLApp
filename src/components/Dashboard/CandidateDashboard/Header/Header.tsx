@@ -86,7 +86,7 @@ const Header = ({ refetch }: ChildProps) => {
   };
   return (
     <header
-      className=" flex gap-x-10 w-full px-10  bg-white h-[10vh]  border-b border-slate-300 "
+      className=" flex gap-x-10 w-full px-10  bg-white h-[7vh]  border-b border-slate-300 "
       style={{
         // paddingBottom: "1vh",
 
