@@ -42,7 +42,7 @@ const Sidebar = () => {
         user?.role !== "manager" ? "h-screen" : "h-auto"
       }   bg-white border-r flex  w-min  pt-5 flex-col justify-between items-center pb-5 `}
     >
-      <div className="   rounded-full flex flex-col gap-y-4 items-center  mx-2">
+      <div className="   rounded-full flex flex-col gap-y-7 items-center  mx-2">
         <Avatar className="   w-11 h-11">
           <AvatarImage
             src={`https://api.dicebear.com/7.x/thumbs/svg?seed=${user?.user_name}&scale=160&radius=50`}
@@ -57,7 +57,7 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/CS")
               : navigate("/admin-dashboard")
           }
-          className=" hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[2px] w-11 h-11"
+          className=" hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm"
           style={{
             background:
               location.pathname == "/candidate-dashboard/CS"
@@ -77,7 +77,7 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/AGA")
               : navigate("/admin-dashboard")
           }
-          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[2px] w-11 h-11"
+          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm"
           style={{
             background:
               location.pathname == "/candidate-dashboard/AGA"
@@ -97,7 +97,7 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/CGA")
               : navigate("/admin-dashboard")
           }
-          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[2px] w-11 h-11"
+          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm"
           style={{
             background:
               location.pathname == "/candidate-dashboard/CGA"
@@ -116,7 +116,7 @@ const Sidebar = () => {
           className=" hover:scale-110 duration-500"
         >
           {/* <AnalyticsIcon /> */}
-          <div className="w-11 h-11  border-[#69C920] border-2 rounded-full flex items-center justify-center">
+          <div className="w-11 h-11  border-[#69C920] border-[1px] rounded-full flex items-center justify-center">
             <ClipboardListIcon
               className=" w-58 h-8"
               strokeWidth={1.5}

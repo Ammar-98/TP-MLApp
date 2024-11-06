@@ -146,9 +146,122 @@ const CandidateTypeCA = () => {
   // console.log(data.candidate_type)
 
   return (
-    <div className=" flex flex-col max-h-screen">
+    <div className=" flex flex-col max-h-screen w-full">
       <Header refetch={refetch} />
+      {/* <div className=" w-full  flex h-[90vh] bg-[#F1F5F5]">
+        <div className=" w-[60%]   py-7 px-7 overflow-y-scroll">
+          <div className=" text-black text-lg font-semibold">
+            CS Quiz Questionnaire
+          </div>
+          <div className=" my-5 gap-3">
+            <div className=" text-sm font-semibold mb-2">
+              Questionnaire AI Score:
+            </div>
+            <div className=" flex">
+              <div className=" flex gap-1">
+                <div className=" text-base font-semibold">Avg AI Scores:</div>
+                <div
+                  className={`${
+                    data?.aggregate_score_ml >= 89
+                      ? `text-[#69C920]`
+                      : data?.aggregate_score_ml >= 79
+                      ? `text-[#69C920]`
+                      : ` text-[#FF3434]`
+                  } font-semibold`}
+                >
+                  {data?.aggregate_score_ml?.toFixed(1)?.replace(/[.,]0$/, "")}
+                </div>
+              </div>
 
+              {questions.map((item, index) => (
+                <div className=" flex gap-1 pl-5">
+                  <div className=" text-base font-semibold">Q{index + 1}:</div>
+                  <div
+                    className={`${
+                      data[`question${index + 1}_result`]?.score >= 89
+                        ? `text-[#69C920]`
+                        : data[`question${index + 1}_result`]?.score >= 79
+                        ? `text-[#69C920]`
+                        : ` text-[#FF3434]`
+                    } font-semibold`}
+                  >
+                    {String(
+                      data[`question${index + 1}_result`]?.score
+                    ).includes(".")
+                      ? data[`question${index + 1}_result`]?.score
+                          .toFixed(1)
+                          .replace(/[.,]0$/, "")
+                      : data[`question${index + 1}_result`]?.score}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            {questions.map((item, index) => (
+              <div className=" py-4 ">
+                <div className=" py-3 text-[15px] font-semibold">
+                  Question {index + 1}:
+                </div>
+                <div className=" pb-3 text-[15px]  font-[300]">
+                  Q{index + 1}, {item}
+                </div>
+                <div>
+                  <div className=" pb-1 text-sm font-semibold ">Response:</div>
+                  <div className=" bg-white py-3 px-3 rounded-3xl relative">
+                    <div
+                      className={` bg-[#e4ffe7] ${
+                        data[`question${index + 1}_result`] === null
+                          ? "hidden"
+                          : "flex"
+                      } absolute  items-center justify-center  text-sm text-black h-10 w-10 rounded-full border-[#A8A8A8] border top-[-20px] right-[-23px]`}
+                    >
+                      {String(
+                        data[`question${index + 1}_result`]?.score
+                      ).includes(".")
+                        ? data[`question${index + 1}_result`]?.score
+                            .toFixed(1)
+                            .replace(/[.,]0$/, "")
+                        : data[`question${index + 1}_result`]?.score}
+                    </div>
+                    <div className=" text-sm ">
+                      {data[`CS_Quiz_${index + 1}`]}
+                    </div>
+                  </div>
+                  <div className=" pt-4 text-sm font-semibold">
+                    Update your Score Here:
+                  </div>
+                  <div className=" mt-1 flex ">
+                    <div className="border-[#69C920] py-2 px-4 bg-white rounded border-2">
+                      89
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className=" w-[40%] bg-[#D7E6E7]  py-7 px-7 overflow-y-scroll ">
+          <div className=" text-black text-lg font-semibold">
+            Candidate Application
+          </div>
+          <div className=" pt-4 text-[14px] pb-2">Details</div>
+          <div className=" flex gap-3">
+            <div className=" bg-white border border-[#69C920] rounded-full px-6 py-2 text-sm">
+              RS Name:ADDDD
+            </div>
+            <div className=" flex">
+              <div className=" bg-white border  rounded-full px-6 py-2 text-sm">
+                Duplicate: {data?.repeat ? "Yes" : "No"}
+              </div>
+            </div>
+          </div>
+          <div className=" bg-white border  rounded-full mt-2   w-[100px] flex items-center justify-center py-2 text-sm">
+            Type: {data?.candidate_type}
+          </div>
+          <div className=" pt-4 text-[14px] pb-2">Links</div>
+        </div>
+      </div> */}
       <div
         style={{
           backgroundImage: `linear-gradient(
@@ -159,7 +272,7 @@ const CandidateTypeCA = () => {
 
   )`,
         }}
-        className="grid  grid-cols-3  overflow-hidden  "
+        className="grid  grid-cols-3  overflow-hidden pt-3  "
       >
         <section className=" pl-2 pb-5 max-h-screen overflow-y-scroll no-scrollbar ">
           <div
@@ -204,9 +317,7 @@ const CandidateTypeCA = () => {
                           .toFixed(1)
                           .replace(/[.,]0$/, "")
                       : data[`question${index + 1}_result`]?.score}
-                    {/* {data[`question${index + 1}_result`]?.score
-                      .toFixed(1)
-                      .replace(/[.,]0$/, "")} */}
+                    
                   </span>
                 </div>
               </div>
@@ -411,29 +522,7 @@ const CandidateTypeCA = () => {
                 type="text"
               />
             </div>
-            {/* <div className=" flex flex-col gap-y-2">
-              <Label className="text-sm" htmlFor="coverletter">
-                Cover Letter
-              </Label>
-              <div
-                className="bg-white  text-[#808080] drop-shadow-md  rounded-2xl p-3"
-
-              >
-                {" "}
-                {data?.Cover_Letter ? data.Cover_Letter : "Not Provided"}
-              </div>
-            </div> */}
-            {/* <div className=" flex flex-col gap-y-2">
-              <Label className="text-sm" htmlFor="voiceintro">
-                Voice Introduction Link
-              </Label>
-              <div className="bg-white  text-[#808080] drop-shadow-md  rounded-2xl p-3">
-                {" "}
-                {data?.please_record_a_short_loom_video_introducing_yourself
-                  ? data.please_record_a_short_loom_video_introducing_yourself
-                  : "Not Provided"}
-              </div>
-            </div> */}
+           
 
             <div className=" lg:text-sm text-xs text-center flex gap-x-3 justify-between my-4">
               <button
@@ -446,16 +535,7 @@ const CandidateTypeCA = () => {
               >
                 Application Resume Link
               </button>
-              {/* <button
-                onClick={() =>
-                  data?.valid_id
-                    ? window.open(data?.valid_id)
-                    : alert("Valid ID link Not Found")
-                }
-                className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
-              >
-                Valid ID Upload
-              </button> */}
+            
 
               <button
                 onClick={() =>
@@ -467,78 +547,20 @@ const CandidateTypeCA = () => {
               >
                 Speed Test Link
               </button>
-              {/* <Dialog>
-                <DialogTrigger asChild>
-                  <button
-                    className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
-                  >
-                    Speed Test Link
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="max-w-fit">
-                  <DialogHeader>
-                    <DialogTitle> Speed Test Link</DialogTitle>
-                    <DialogDescription>
-                      Click the link below (if avaliable)
-                    </DialogDescription>
-                  </DialogHeader>
-                  {data?.Speedtest_Link ? (
-                    <a
-                      href={data?.Speedtest_Link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={` border border-dashed border-green-400 rounded-xl p-3 text-blue-600`}
-                    >
-                      {data?.Speedtest_Link}
-                    </a>
-                  ) : (
-                    <div className="text-red-400 font-medium  border border-dashed border-red-500 rounded-xl p-3">
-                      No SpeedTest Link was Provided
-                    </div>
-                  )}
-                </DialogContent>
-              </Dialog> */}
+             
               <button
                 onClick={() =>
                   data?.please_record_a_short_loom_video_introducing_yourself
-                    ? window.open(data?.please_record_a_short_loom_video_introducing_yourself)
+                    ? window.open(
+                        data?.please_record_a_short_loom_video_introducing_yourself
+                      )
                     : alert("Voice Introduction Link Not Found")
                 }
                 className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
               >
                 Voice Introduction Link
               </button>
-              {/* <Dialog>
-                <DialogTrigger asChild>
-                  <button
-                    className={`relative  text-[#7000FF] tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
-                  >
-                    Typing Quiz Link
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="">
-                  <DialogHeader>
-                    <DialogTitle>Typing Quiz Link</DialogTitle>
-                    <DialogDescription>
-                      Click the link below (if avaliable)
-                    </DialogDescription>
-                  </DialogHeader>
-                  {data?.Typing_Quiz_Link ? (
-                    <a
-                      href={data?.Typing_Quiz_Link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={` border border-dashed border-green-400 rounded-xl p-3 text-blue-600`}
-                    >
-                      {data?.Typing_Quiz_Link}
-                    </a>
-                  ) : (
-                    <div className="text-red-400 font-medium border border-dashed border-red-500 rounded-xl p-3">
-                      No Typing Quiz Link was Provided
-                    </div>
-                  )}
-                </DialogContent>
-              </Dialog> */}
+        
             </div>
             <div className=" flex flex-col gap-y-2">
               <Label
@@ -644,7 +666,11 @@ const CandidateTypeCA = () => {
               <Input
                 className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
                 name="Device Processor Specs"
-                value={data?.device_processor_specs ? data.device_processor_specs : "Not Provided"}
+                value={
+                  data?.device_processor_specs
+                    ? data.device_processor_specs
+                    : "Not Provided"
+                }
                 readOnly
                 type="text"
               />
@@ -656,7 +682,11 @@ const CandidateTypeCA = () => {
               <Input
                 className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
                 name="Device Ram/Memory Capacity"
-                value={data?.device_ram_memory_capacity ? data.device_ram_memory_capacity : "Not Provided"}
+                value={
+                  data?.device_ram_memory_capacity
+                    ? data.device_ram_memory_capacity
+                    : "Not Provided"
+                }
                 readOnly
                 type="text"
               />

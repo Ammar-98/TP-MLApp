@@ -1,7 +1,6 @@
 import { useAuthStore } from "@/store/useAuthStore";
 import { useQuery } from "@tanstack/react-query";
-// import { SheetIcon } from "@/lib/Icons";
-// import { failingReasons } from '@/components/StaticData/FailingReason'
+
 import {
   // ArrowUpDown,
   ChevronRightCircle,
@@ -9,14 +8,7 @@ import {
   ChevronLeftCircle,
   ArrowUpWideNarrow,
 } from "lucide-react";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from '@/components/ui/dropdown-menu'
+
 import { Progress } from "@/components/ui/progress";
 import { useQuestionResultStore } from "@/store/useQuestionResultStore";
 import Loading from "./Loading";
@@ -84,43 +76,6 @@ const Header = ({ refetch }: ChildProps) => {
     return <p className=" text-base text-[#69C920]"> No Application Found</p>;
   }
   console.log(data);
-
-  // const checkManualQuestionGrading = () => {
-  //   let allQuestions
-  //   if (candidate_Type == 'CS') {
-  //     // Combine all question arrays into one array
-  //     allQuestions = [
-  //       ...question1_Result,
-  //       ...question2_Result,
-  //       ...question3_Result,
-  //       ...question4_Result,
-  //       ...question5_Result,
-  //     ]
-
-  //     // Check if any value is equal to 0
-  //     if (allQuestions.some((value) => parseFloat(value) === 0)) {
-  //       // At least one value is equal to 0, send old values
-  //       alert('ML VAlues will be pushed')
-  //     } else {
-  //       // All values are greater than 0, send new values
-  //       alert('NEW VALUES FOR CS WILL BE PUSHED')
-  //     }
-  //   } else {
-  //     allQuestions = [
-  //       ...question1_Result,
-  //       ...question2_Result,
-  //       ...question3_Result,
-  //     ]
-  //     // Check if any value is equal to 0
-  //     if (allQuestions.some((value) => parseFloat(value) === 0)) {
-  //       // At least one value is equal to 0, send old values
-  //       alert('ML VAlues will be pushed')
-  //     } else {
-  //       // All values are greater than 0, send new values
-  //       alert('NEW VALUES FOR !CS WILL BE PUSHED')
-  //     }
-  //   }
-  // }
   console.log(data);
   const handleNext = () => {
     setNextApplicant(),
@@ -131,29 +86,16 @@ const Header = ({ refetch }: ChildProps) => {
   };
   return (
     <header
-      className=" flex gap-x-10 w-full px-10 py-1"
+      className=" flex gap-x-10 w-full px-10  bg-white h-[10vh]  border-b border-slate-300 "
       style={{
-        paddingBottom: "3vh",
-        // backgroundImage: `linear-gradient(
-        //   90deg,
-        //   rgba(201, 255, 206, 0.52) 0%,
-        //   rgba(171, 254, 206, 0.09) 33.33%,
-        //   rgba(169, 177, 243, 0.44) 66.67%,
-        //   rgba(158, 0, 255, 0.05) 100%
-        // )`,
-        backgroundImage: `linear-gradient(
-          90deg,
+        // paddingBottom: "1vh",
 
-          #f1f5f5 10%,
-    #f1f5f5 10%
-        
-
-
-
-         
-      
-        )`,
-        paddingTop: "2vh",
+    //     backgroundImage: `linear-gradient(
+    //       90deg,
+    //       #f1f5f5 10%,
+    // #f1f5f5 10%
+    //     )`,
+        // paddingTop: "2vh",
       }}
     >
       <div className=" flex items-center w-full gap-x-4">
@@ -170,8 +112,9 @@ const Header = ({ refetch }: ChildProps) => {
                   }}
                 >
                   <ChevronLeftCircle
-                    className=" w-8 h-8 bg-white rounded-2xl border"
+                    className=" w-8 h-8 bg-white rounded-2xl "
                     color="black"
+                    strokeWidth={1.2}
                   />
                 </button>
               </TooltipTrigger>
@@ -191,8 +134,10 @@ const Header = ({ refetch }: ChildProps) => {
                   }}
                 >
                   <ChevronRightCircle
-                    className=" w-8 h-8 bg-white rounded-2xl border"
+                    className=" w-8 h-8 bg-white rounded-2xl "
                     color="black"
+                    strokeWidth={1.2}
+
                   />
                 </button>
               </TooltipTrigger>
@@ -202,7 +147,7 @@ const Header = ({ refetch }: ChildProps) => {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <TooltipProvider delayDuration={400}>
+        {/* <TooltipProvider delayDuration={400}>
           <Tooltip>
             <TooltipTrigger asChild>
               <button
@@ -220,7 +165,7 @@ const Header = ({ refetch }: ChildProps) => {
               <p>Order by {ascApplication === "true" ? "Oldest" : "Newest"} </p>
             </TooltipContent>
           </Tooltip>
-        </TooltipProvider>
+        </TooltipProvider> */}
         <div className="flex items-center gap-x-4 w-full ">
           <Progress
             value={(data?.total_graded / data?.total_assigned) * 100}
@@ -232,12 +177,12 @@ const Header = ({ refetch }: ChildProps) => {
         </div>
       </div>
 
-      <div className="flex w-full gap-x-2 items-center justify-end">
+      {/* <div className="flex w-full gap-x-2 items-center justify-end">
         <PendingButton refetch={refetch} />
         <FailCandidateButton refetch={refetch} />
         <CandidatePassButton refetch={refetch} />
-        <InviteToHireFlixButton refetch={refetch}/>
-      </div>
+        <InviteToHireFlixButton refetch={refetch} />
+      </div> */}
     </header>
   );
 };
