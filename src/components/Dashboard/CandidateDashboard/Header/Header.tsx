@@ -177,12 +177,12 @@ const Header = ({ refetch }: ChildProps) => {
         </div>
       </div>
 
-      {/* <div className="flex w-full gap-x-2 items-center justify-end">
+      <div className="flex w-full gap-x-2 items-center justify-end">
         <PendingButton refetch={refetch} />
         <FailCandidateButton refetch={refetch} />
         <CandidatePassButton refetch={refetch} />
         <InviteToHireFlixButton refetch={refetch} />
-      </div> */}
+      </div>
     </header>
   );
 };
