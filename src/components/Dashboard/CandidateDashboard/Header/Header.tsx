@@ -7,6 +7,8 @@ import {
   // ArrowLeftCircle,
   ChevronLeftCircle,
   ArrowUpWideNarrow,
+  ChevronDown,
+  Filter,
 } from "lucide-react";
 
 import { Progress } from "@/components/ui/progress";
@@ -22,6 +24,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { InviteToHireFlixButton } from "./InviteToHireFlix";
+import { useState } from "react";
+import ClientFilter from "./NameFilter";
+import EmailFilter from "./EmailFilter";
+import FilterComponent from "./FilterComponent";
 
 interface ChildProps {
   refetch: () => Promise<any>; // Define the prop type for the refetch function
@@ -84,21 +90,14 @@ const Header = ({ refetch }: ChildProps) => {
       }, 0);
     return;
   };
+
   return (
     <header
       className=" flex gap-x-10 w-full px-10  bg-white h-[7vh]  border-b border-slate-300 "
-      style={{
-        // paddingBottom: "1vh",
-
-    //     backgroundImage: `linear-gradient(
-    //       90deg,
-    //       #f1f5f5 10%,
-    // #f1f5f5 10%
-    //     )`,
-        // paddingTop: "2vh",
-      }}
+    
     >
       <div className=" flex items-center w-full gap-x-4">
+        <FilterComponent />
         <div className="flex items-center gap-x-2">
           <TooltipProvider delayDuration={400}>
             <Tooltip>
@@ -137,7 +136,6 @@ const Header = ({ refetch }: ChildProps) => {
                     className=" w-8 h-8 bg-white rounded-2xl "
                     color="black"
                     strokeWidth={1.2}
-
                   />
                 </button>
               </TooltipTrigger>
@@ -147,25 +145,7 @@ const Header = ({ refetch }: ChildProps) => {
             </Tooltip>
           </TooltipProvider>
         </div>
-        {/* <TooltipProvider delayDuration={400}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <button
-                onClick={() => {
-                  setAscApplicant(),
-                    setTimeout(() => {
-                      refetch();
-                    }, 0);
-                }}
-              >
-                <ArrowUpWideNarrow className="w-8 h-8 text-[black]  cursor-pointer" />
-              </button>
-            </TooltipTrigger>
-            <TooltipContent className=" bg-green-400 text-white">
-              <p>Order by {ascApplication === "true" ? "Oldest" : "Newest"} </p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider> */}
+      
         <div className="flex items-center gap-x-4 w-full ">
           <Progress
             value={(data?.total_graded / data?.total_assigned) * 100}
