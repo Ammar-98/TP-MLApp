@@ -37,8 +37,8 @@ export const pendingCandidateFormSchema = z.object({
     "Invalid ID",
     "Invalid Name",
     "Invalid Resume",
-    "Invalid SpeedTest link",
-    "Invalid Vocaroo Voice Recording",
+    "Invalid Speed Test Result",
+    "Invalid Voice Intro Recording Link",
   ]),
 });
 export const passCandidateFormSchema = z.object({
