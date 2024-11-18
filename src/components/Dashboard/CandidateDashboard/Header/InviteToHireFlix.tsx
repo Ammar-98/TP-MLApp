@@ -124,7 +124,7 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
               question4_score: question_4_Score,
               question5_score: question_5_Score,
               decision: "Passed",
-              remarks: "Hireflex",
+              remarks: "Hireflix",
             }),
           }
         );

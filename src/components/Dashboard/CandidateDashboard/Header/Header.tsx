@@ -6,7 +6,7 @@ import {
   ChevronRightCircle,
   // ArrowLeftCircle,
   ChevronLeftCircle,
-  ArrowUpWideNarrow,
+  // ArrowUpWideNarrow,
 } from "lucide-react";
 
 import { Progress } from "@/components/ui/progress";
@@ -30,8 +30,8 @@ interface ChildProps {
 const Header = ({ refetch }: ChildProps) => {
   const { access_token } = useAuthStore();
   const {
-    setAscApplicant,
-    ascApplication,
+    // setAscApplicant,
+    // ascApplication,
     setNextApplicant,
     setPrevApplicant,
   } = useQuestionResultStore();
