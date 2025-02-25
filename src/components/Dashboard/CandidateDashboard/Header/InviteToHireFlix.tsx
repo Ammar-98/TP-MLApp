@@ -207,6 +207,19 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
             }),
           }
         );
+
+        // console.log('candidate_Type', candidate_Type)
+        
+        // console.log('body', {
+        //   question1_score: question_1_Score,
+        //   question2_score: question_2_Score,
+        //   question3_score: question_3_Score,
+        //   question4_score: question_4_Score,
+        //   question5_score: question_5_Score,
+        //   decision: "Passed",
+        //   remarks: "Hireflex",
+        // })
+
         if (!res.ok) {
           const data = await res.json();
           console.log(data);
