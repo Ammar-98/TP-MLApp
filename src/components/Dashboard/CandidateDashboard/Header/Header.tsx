@@ -87,16 +87,17 @@ const Header = ({ refetch }: ChildProps) => {
   return (
     <header
       className=" flex gap-x-10 w-full px-10  bg-white h-[7vh]  border-b border-slate-300 "
-      style={{
-        // paddingBottom: "1vh",
-
-    //     backgroundImage: `linear-gradient(
-    //       90deg,
-    //       #f1f5f5 10%,
-    // #f1f5f5 10%
-    //     )`,
-        // paddingTop: "2vh",
-      }}
+      style={
+        {
+          // paddingBottom: "1vh",
+          //     backgroundImage: `linear-gradient(
+          //       90deg,
+          //       #f1f5f5 10%,
+          // #f1f5f5 10%
+          //     )`,
+          // paddingTop: "2vh",
+        }
+      }
     >
       <div className=" flex items-center w-full gap-x-4">
         <div className="flex items-center gap-x-2">
@@ -137,7 +138,6 @@ const Header = ({ refetch }: ChildProps) => {
                     className=" w-8 h-8 bg-white rounded-2xl "
                     color="black"
                     strokeWidth={1.2}
-
                   />
                 </button>
               </TooltipTrigger>
