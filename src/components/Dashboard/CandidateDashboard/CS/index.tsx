@@ -166,9 +166,9 @@ const CandidateTypeCA = () => {
 
   )`,
         }}
-        className="grid  grid-cols-2  overflow-hidden pt-3  "
+        className=" flex  overflow-hidden pt-3  "
       >
-        <section className=" pl-2 pb-5 max-h-screen overflow-y-scroll no-scrollbar ">
+        <div className=" bg-[#f1f5f5] pl-2 pb-5 max-h-screen overflow-y-scroll no-scrollbar w-3/5 ">
           <div
             className="flex text-[black] "
             style={{ alignItems: "center", paddingLeft: "10px", gap: "10px" }}
@@ -432,8 +432,8 @@ const CandidateTypeCA = () => {
               </div>
             </div>
           </div>
-        </section>
-        <section className="px-4 pb-5 max-h-screen overflow-y-scroll no-scrollbar">
+        </div>
+        <div className="px-4 bg-[#ebf3f4] pb-5 max-h-screen overflow-y-scroll no-scrollbar w-2/5">
           <div className="flex text-black my-2 flex-col  ">
             <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
               Candidate Application
@@ -798,8 +798,8 @@ const CandidateTypeCA = () => {
               />
             </div>
           </div>
-        </section>
-        {/* <GradingRubicSectionCS /> */}
+        </div>
+
       </div>
     </div>
   );
@@ -807,47 +807,4 @@ const CandidateTypeCA = () => {
 
 export default CandidateTypeCA;
 
-// {questions.map((question, index) => (
-//   <div key={index} className=" flex flex-col gap-y-1 ">
-//     <div className=" pl-2 font-bold text-sm tect-[#163143B2">
-//       Question {index + 1}
-//     </div>
-//     <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
-//       {" "}
-//       <span>{question}</span>{" "}
-//     </span>
-//     <div className=" pl-2 text-sm font-semibold text-[#163143B2">
-//       Response:
-//     </div>
-//     <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
-//       {data[`CS_Quiz_${index + 1}`]}
-//     </div>
-//     <div className=" pl-2 text-sm font-semibold text-[#163143] py-2 ">
-//       Update Yout Score Here:
-//     </div>
-//     <div>
-//       <input
-//         onKeyDown={(e) => {
-//           if (e.key === "Backspace") {
-//             e.preventDefault(); // Prevent the Backspace key from navigating back
-//             setQuestion1_Result("");
-//           }
-//         }}
-//         type="number"
-//         name="question_1_grade"
-//         id="question_1_grade"
-//         className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
-//         placeholder="0"
-//         min={0}
-//         max={100}
-//         value={question1_Result == "0" ? "0" : question1_Result}
-//         onChange={(e) =>
-//           Number(e.target.value) <= 100 &&
-//           Number(e.target.value) > 0
-//             ? setQuestion1_Result(e.target.value)
-//             : null
-//         }
-//       />
-//     </div>
-//   </div>
-// ))}
+
