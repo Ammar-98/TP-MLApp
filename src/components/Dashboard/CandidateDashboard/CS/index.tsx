@@ -153,274 +153,6 @@ const CandidateTypeCA = () => {
     );
   }
 
-  const QuestionnaireView = () => {
-    return (
-      <div className=" bg-[#f1f5f5] pl-2 pb-5 max-h-screen overflow-y-scroll no-scrollbar w-3/5 ">
-        <div
-          className="flex text-[black] "
-          style={{ alignItems: "center", paddingLeft: "10px", gap: "10px" }}
-        >
-          <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
-            {data?.candidate_type} Quiz Questionnaire
-          </h1>
-        </div>
-        <div className=" pl-2 pt-10 pb-5 w-full gap-3 flex flex-col  ">
-          <div className=" text-[#163143B2] text-sm font-semibold">
-            Questionnaire AI Scores:
-          </div>
-          <div className=" flex w-full gap-4">
-            <div className=" flex gap-1">
-              <div className={`font-semibold text-base `}>Avg AI Score:</div>
-              <div
-                className={`
-           ${
-             data?.aggregate_score_ml >= 89
-               ? "text-[#69C920]"
-               : data?.aggregate_score_ml >= 79
-               ? "text-[#69C920]"
-               : "text-[#FF3434] "
-           } `}
-              >
-                {data?.aggregate_score_ml?.toFixed(1)?.replace(/[.,]0$/, "")}
-              </div>
-            </div>
-
-            {questions.map((_, index) => (
-              <div className=" flex gap-1">
-                <div className={`font-semibold text-base `}>Q{index + 1}:</div>
-                <div
-                  className={` text-[#69C920]
-           ${
-             data[`question${index + 1}_result`]?.score >= 89
-               ? "text-[#69C920]"
-               : data[`question${index + 1}_result`]?.score >= 79
-               ? "text-[#69C920]"
-               : "text-red-400 "
-           } `}
-                >
-                  {String(data[`question${index + 1}_result`]?.score).includes(
-                    "."
-                  )
-                    ? data[`question${index + 1}_result`]?.score
-                        .toFixed(1)
-                        .replace(/[.,]0$/, "")
-                    : data[`question${index + 1}_result`]?.score}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-5 text-sm ">
-          <div className=" flex flex-col gap-y-1 ">
-            <div className=" pl-2 font-bold text-sm tect-[#163143B2">
-              Question 1
-            </div>
-            <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
-              {" "}
-              <span>{questions[0]}</span>{" "}
-            </span>
-            <div className=" pl-2 text-sm font-semibold text-[#163143B2">
-              Response:
-            </div>
-            <div className="p-3  rounded-2xl bg-white relative mr-6">
-              {data[`CS_Quiz_1`]}
-            </div>
-            <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-              Update Yout Score Here:
-            </div>
-            <div>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key === "Backspace") {
-                    e.preventDefault(); // Prevent the Backspace key from navigating back
-                    setQuestion1_Result("");
-                  }
-                }}
-                type="number"
-                name="question_1_grade"
-                id="question_1_grade"
-                className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
-                placeholder="0"
-                min={0}
-                max={100}
-                value={question1_Result == "0" ? "0" : question1_Result}
-                onChange={(e) =>
-                  Number(e.target.value) <= 100 && Number(e.target.value) > 0
-                    ? setQuestion1_Result(e.target.value)
-                    : null
-                }
-              />
-            </div>
-          </div>
-          <div className=" flex flex-col gap-y-1 ">
-            <div className=" pl-2 font-bold text-sm tect-[#163143B2">
-              Question 2
-            </div>
-            <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
-              {" "}
-              <span>{questions[1]}</span>{" "}
-            </span>
-            <div className=" pl-2 text-sm font-semibold text-[#163143B2">
-              Response:
-            </div>
-            <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
-              {data[`CS_Quiz_2`]}
-            </div>
-            <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-              Update Yout Score Here:
-            </div>
-            <div>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key === "Backspace") {
-                    e.preventDefault(); // Prevent the Backspace key from navigating back
-                    setQuestion2_Result("");
-                  }
-                }}
-                type="number"
-                name="question_2_grade"
-                id="question_2_grade"
-                className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
-                placeholder="0"
-                min={0}
-                max={100}
-                value={question2_Result == "0" ? "0" : question2_Result}
-                onChange={(e) =>
-                  Number(e.target.value) <= 100 && Number(e.target.value) > 0
-                    ? setQuestion2_Result(e.target.value)
-                    : null
-                }
-              />
-            </div>
-          </div>
-          <div className=" flex flex-col gap-y-1 ">
-            <div className=" pl-2 font-bold text-sm tect-[#163143B2">
-              Question 3
-            </div>
-            <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
-              {" "}
-              <span>{questions[2]}</span>{" "}
-            </span>
-            <div className=" pl-2 text-sm font-semibold text-[#163143B2">
-              Response:
-            </div>
-            <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
-              {data[`CS_Quiz_3`]}
-            </div>
-            <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-              Update Yout Score Here:
-            </div>
-            <div>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key === "Backspace") {
-                    e.preventDefault(); // Prevent the Backspace key from navigating back
-                    setQuestion3_Result("");
-                  }
-                }}
-                type="number"
-                name="question_2_grade"
-                id="question_2_grade"
-                className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
-                placeholder="0"
-                min={0}
-                max={100}
-                value={question3_Result == "0" ? "0" : question3_Result}
-                onChange={(e) =>
-                  Number(e.target.value) <= 100 && Number(e.target.value) > 0
-                    ? setQuestion3_Result(e.target.value)
-                    : null
-                }
-              />
-            </div>
-          </div>
-          <div className=" flex flex-col gap-y-1 ">
-            <div className=" pl-2 font-bold text-sm tect-[#163143B2">
-              Question 4
-            </div>
-            <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
-              {" "}
-              <span>{questions[3]}</span>{" "}
-            </span>
-            <div className=" pl-2 text-sm font-semibold text-[#163143B2">
-              Response:
-            </div>
-            <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
-              {data[`CS_Quiz_4`]}
-            </div>
-            <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-              Update Yout Score Here:
-            </div>
-            <div>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key === "Backspace") {
-                    e.preventDefault(); // Prevent the Backspace key from navigating back
-                    setQuestion4_Result("");
-                  }
-                }}
-                type="number"
-                name="question_2_grade"
-                id="question_2_grade"
-                className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
-                placeholder="0"
-                min={0}
-                max={100}
-                value={question4_Result == "0" ? "0" : question4_Result}
-                onChange={(e) =>
-                  Number(e.target.value) <= 100 && Number(e.target.value) > 0
-                    ? setQuestion4_Result(e.target.value)
-                    : null
-                }
-              />
-            </div>
-          </div>
-          <div className=" flex flex-col gap-y-1 ">
-            <div className=" pl-2 font-bold text-sm tect-[#163143B2">
-              Question 5
-            </div>
-            <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
-              {" "}
-              <span>{questions[4]}</span>{" "}
-            </span>
-            <div className=" pl-2 text-sm font-semibold text-[#163143B2">
-              Response:
-            </div>
-            <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
-              {data[`CS_Quiz_5`]}
-            </div>
-            <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-              Update Yout Score Here:
-            </div>
-            <div>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key === "Backspace") {
-                    e.preventDefault(); // Prevent the Backspace key from navigating back
-                    setQuestion5_Result("");
-                  }
-                }}
-                type="number"
-                name="question_2_grade"
-                id="question_2_grade"
-                className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
-                placeholder="0"
-                min={0}
-                max={100}
-                value={question5_Result == "0" ? "0" : question5_Result}
-                onChange={(e) =>
-                  Number(e.target.value) <= 100 && Number(e.target.value) > 0
-                    ? setQuestion5_Result(e.target.value)
-                    : null
-                }
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   const CandidateDetailsView = () => {
     return (
       <div className="px-4 bg-[#ebf3f4] pb-5 max-h-screen overflow-y-scroll no-scrollbar w-2/5">
@@ -879,7 +611,20 @@ const CandidateTypeCA = () => {
         }}
         className=" flex  overflow-hidden pt-3  "
       >
-        <QuestionnaireView />
+        <QuestionnaireView
+          setQuestion1_Result={setQuestion1_Result}
+          setQuestion2_Result={setQuestion2_Result}
+          setQuestion3_Result={setQuestion3_Result}
+          setQuestion4_Result={setQuestion4_Result}
+          setQuestion5_Result={setQuestion5_Result}
+          question1_Result={question1_Result}
+          question2_Result={question2_Result}
+          question3_Result={question3_Result}
+          question4_Result={question4_Result}
+          question5_Result={question5_Result}
+          data={data}
+          questions={questions}
+        />
         <CandidateDetailsView />
       </div>
     </div>
@@ -887,3 +632,284 @@ const CandidateTypeCA = () => {
 };
 
 export default CandidateTypeCA;
+
+const QuestionnaireView = ({
+  setQuestion1_Result,
+  setQuestion2_Result,
+  setQuestion3_Result,
+  setQuestion4_Result,
+  setQuestion5_Result,
+  question1_Result,
+  question2_Result,
+  question3_Result,
+  question4_Result,
+  question5_Result,
+  data,
+  questions,
+}: any) => {
+  return (
+    <div className=" bg-[#f1f5f5] pl-2 pb-5 max-h-screen overflow-y-scroll no-scrollbar w-3/5 ">
+      <div
+        className="flex text-[black] "
+        style={{ alignItems: "center", paddingLeft: "10px", gap: "10px" }}
+      >
+        <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
+          {data?.candidate_type} Quiz Questionnaire
+        </h1>
+      </div>
+      <div className=" pl-2 pt-10 pb-5 w-full gap-3 flex flex-col  ">
+        <div className=" text-[#163143B2] text-sm font-semibold">
+          Questionnaire AI Scores:
+        </div>
+        <div className=" flex w-full gap-4">
+          <div className=" flex gap-1">
+            <div className={`font-semibold text-base `}>Avg AI Score:</div>
+            <div
+              className={`
+         ${
+           data?.aggregate_score_ml >= 89
+             ? "text-[#69C920]"
+             : data?.aggregate_score_ml >= 79
+             ? "text-[#69C920]"
+             : "text-[#FF3434] "
+         } `}
+            >
+              {data?.aggregate_score_ml?.toFixed(1)?.replace(/[.,]0$/, "")}
+            </div>
+          </div>
+
+          {questions.map((_: any, index: any) => (
+            <div className=" flex gap-1">
+              <div className={`font-semibold text-base `}>Q{index + 1}:</div>
+              <div
+                className={` text-[#69C920]
+         ${
+           data[`question${index + 1}_result`]?.score >= 89
+             ? "text-[#69C920]"
+             : data[`question${index + 1}_result`]?.score >= 79
+             ? "text-[#69C920]"
+             : "text-red-400 "
+         } `}
+              >
+                {String(data[`question${index + 1}_result`]?.score).includes(
+                  "."
+                )
+                  ? data[`question${index + 1}_result`]?.score
+                      .toFixed(1)
+                      .replace(/[.,]0$/, "")
+                  : data[`question${index + 1}_result`]?.score}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col gap-y-5 text-sm ">
+        <div className=" flex flex-col gap-y-1 ">
+          <div className=" pl-2 font-bold text-sm tect-[#163143B2">
+            Question 1
+          </div>
+          <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
+            {" "}
+            <span>{questions[0]}</span>{" "}
+          </span>
+          <div className=" pl-2 text-sm font-semibold text-[#163143B2">
+            Response:
+          </div>
+          <div className="p-3  rounded-2xl bg-white relative mr-6">
+            {data[`CS_Quiz_1`]}
+          </div>
+          <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
+            Update Yout Score Here:
+          </div>
+          <div>
+            <input
+              onKeyDown={(e) => {
+                if (e.key === "Backspace") {
+                  e.preventDefault(); // Prevent the Backspace key from navigating back
+                  setQuestion1_Result("");
+                }
+              }}
+              type="number"
+              name="question_1_grade"
+              id="question_1_grade"
+              className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
+              placeholder="0"
+              min={0}
+              max={100}
+              value={question1_Result == "0" ? "0" : question1_Result}
+              onChange={(e) =>
+                Number(e.target.value) <= 100 && Number(e.target.value) > 0
+                  ? setQuestion1_Result(e.target.value)
+                  : null
+              }
+            />
+          </div>
+        </div>
+        <div className=" flex flex-col gap-y-1 ">
+          <div className=" pl-2 font-bold text-sm tect-[#163143B2">
+            Question 2
+          </div>
+          <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
+            {" "}
+            <span>{questions[1]}</span>{" "}
+          </span>
+          <div className=" pl-2 text-sm font-semibold text-[#163143B2">
+            Response:
+          </div>
+          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+            {data[`CS_Quiz_2`]}
+          </div>
+          <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
+            Update Yout Score Here:
+          </div>
+          <div>
+            <input
+              onKeyDown={(e) => {
+                if (e.key === "Backspace") {
+                  e.preventDefault(); // Prevent the Backspace key from navigating back
+                  setQuestion2_Result("");
+                }
+              }}
+              type="number"
+              name="question_2_grade"
+              id="question_2_grade"
+              className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
+              placeholder="0"
+              min={0}
+              max={100}
+              value={question2_Result == "0" ? "0" : question2_Result}
+              onChange={(e) =>
+                Number(e.target.value) <= 100 && Number(e.target.value) > 0
+                  ? setQuestion2_Result(e.target.value)
+                  : null
+              }
+            />
+          </div>
+        </div>
+        <div className=" flex flex-col gap-y-1 ">
+          <div className=" pl-2 font-bold text-sm tect-[#163143B2">
+            Question 3
+          </div>
+          <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
+            {" "}
+            <span>{questions[2]}</span>{" "}
+          </span>
+          <div className=" pl-2 text-sm font-semibold text-[#163143B2">
+            Response:
+          </div>
+          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+            {data[`CS_Quiz_3`]}
+          </div>
+          <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
+            Update Yout Score Here:
+          </div>
+          <div>
+            <input
+              onKeyDown={(e) => {
+                if (e.key === "Backspace") {
+                  e.preventDefault(); // Prevent the Backspace key from navigating back
+                  setQuestion3_Result("");
+                }
+              }}
+              type="number"
+              name="question_2_grade"
+              id="question_2_grade"
+              className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
+              placeholder="0"
+              min={0}
+              max={100}
+              value={question3_Result == "0" ? "0" : question3_Result}
+              onChange={(e) =>
+                Number(e.target.value) <= 100 && Number(e.target.value) > 0
+                  ? setQuestion3_Result(e.target.value)
+                  : null
+              }
+            />
+          </div>
+        </div>
+        <div className=" flex flex-col gap-y-1 ">
+          <div className=" pl-2 font-bold text-sm tect-[#163143B2">
+            Question 4
+          </div>
+          <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
+            {" "}
+            <span>{questions[3]}</span>{" "}
+          </span>
+          <div className=" pl-2 text-sm font-semibold text-[#163143B2">
+            Response:
+          </div>
+          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+            {data[`CS_Quiz_4`]}
+          </div>
+          <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
+            Update Yout Score Here:
+          </div>
+          <div>
+            <input
+              onKeyDown={(e) => {
+                if (e.key === "Backspace") {
+                  e.preventDefault(); // Prevent the Backspace key from navigating back
+                  setQuestion4_Result("");
+                }
+              }}
+              type="number"
+              name="question_2_grade"
+              id="question_2_grade"
+              className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
+              placeholder="0"
+              min={0}
+              max={100}
+              value={question4_Result == "0" ? "0" : question4_Result}
+              onChange={(e) =>
+                Number(e.target.value) <= 100 && Number(e.target.value) > 0
+                  ? setQuestion4_Result(e.target.value)
+                  : null
+              }
+            />
+          </div>
+        </div>
+        <div className=" flex flex-col gap-y-1 ">
+          <div className=" pl-2 font-bold text-sm tect-[#163143B2">
+            Question 5
+          </div>
+          <span className="  font-normal text-sm text-[#163143B2] mx-2 flex  gap-x-1">
+            {" "}
+            <span>{questions[4]}</span>{" "}
+          </span>
+          <div className=" pl-2 text-sm font-semibold text-[#163143B2">
+            Response:
+          </div>
+          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+            {data[`CS_Quiz_5`]}
+          </div>
+          <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
+            Update Yout Score Here:
+          </div>
+          <div>
+            <input
+              onKeyDown={(e) => {
+                if (e.key === "Backspace") {
+                  e.preventDefault(); // Prevent the Backspace key from navigating back
+                  setQuestion5_Result("");
+                }
+              }}
+              type="number"
+              name="question_2_grade"
+              id="question_2_grade"
+              className=" w-11 text-center focus:outline-none border-[#69C920] ml-2 border bg-white  min-w-0  rounded-md text-gray-900  sm:text-sm sm:leading-6"
+              placeholder="0"
+              min={0}
+              max={100}
+              value={question5_Result == "0" ? "0" : question5_Result}
+              onChange={(e) =>
+                Number(e.target.value) <= 100 && Number(e.target.value) > 0
+                  ? setQuestion5_Result(e.target.value)
+                  : null
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
