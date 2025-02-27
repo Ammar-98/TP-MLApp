@@ -469,7 +469,7 @@ const QuestionnaireView = ({
 const CandidateDetailsView = ({ data }: any) => {
   return (
     <div className="px-4 bg-[#ebf3f4] pb-5 pt-4 max-h-screen overflow-y-scroll no-scrollbar w-2/5">
-      <div className="flex text-black  flex-col  ">
+      <div className="flex text-black my-2  flex-col  ">
         <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
           Candidate Application
         </h1>
@@ -494,11 +494,13 @@ const CandidateDetailsView = ({ data }: any) => {
             Type: {data?.candidate_type}
           </span>
         </div>
-        <div className=" font-normal text-sm text-[#163143B2] pt-4 pb-2">
+
+        <div className="  font-normal text-sm text-[#163143B2] pt-4 pb-2">
           {" "}
           Links
         </div>
-        <div className=" lg:text-sm text-xs text-center flex flex-col gap-x-3 gap-y-2 justify-between ">
+
+        <div className="  lg:text-sm text-xs text-center flex flex-col gap-x-3 gap-y-2 justify-between ">
           <button
             onClick={() =>
               data?.please_record_a_short_loom_video_introducing_yourself
