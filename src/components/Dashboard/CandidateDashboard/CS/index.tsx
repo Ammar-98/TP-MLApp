@@ -153,454 +153,6 @@ const CandidateTypeCA = () => {
     );
   }
 
-  const CandidateDetailsView = () => {
-    return (
-      <div className="px-4 bg-[#ebf3f4] pb-5 max-h-screen overflow-y-scroll no-scrollbar w-2/5">
-        <div className="flex text-black my-2 flex-col  ">
-          <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
-            Candidate Application
-          </h1>
-          <div className=" font-normal text-sm text-[#163143B2] pt-4">
-            {" "}
-            Details
-          </div>
-          <div className="flex gap-x-2 pt-2">
-            <span
-              className={` ${
-                data?.repeat ? "bg-red-500" : "bg-[#FAFFF6]"
-              } text-sm p-2 px-4 text-black rounded-2xl  flex items-center justify-center border-[#A8A8A8] drop-shadow-sm`}
-            >
-              Duplicate: {data?.repeat ? "Yes" : "No"}
-            </span>
-
-            <span
-              className={` ${
-                data?.candidate_type == "CS" ? "bg-[#FAFFF6]" : "bg-[#faa946]"
-              } text-black p-2 text-sm px-4 rounded-2xl  flex items-center justify-center border-[#A8A8A8] drop-shadow-sm`}
-            >
-              Type: {data?.candidate_type}
-            </span>
-          </div>
-          <div className=" font-normal text-sm text-[#163143B2] pt-4 pb-2">
-            {" "}
-            Links
-          </div>
-          <div className=" lg:text-sm text-xs text-center flex flex-col gap-x-3 gap-y-2 justify-between ">
-            <button
-              onClick={() =>
-                data?.please_record_a_short_loom_video_introducing_yourself
-                  ? window.open(
-                      data?.please_record_a_short_loom_video_introducing_yourself
-                    )
-                  : alert("Voice Introduction Link Not Found")
-              }
-              className={` flex gap-2 items-center text-sm font-normal text-[#163143] text-left   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
-            >
-              Voice Introduction Link{" "}
-              <ExternalLink size={17} strokeWidth={2} color="#69C920" />
-            </button>
-            <button
-              onClick={() =>
-                data?.Speedtest_Link
-                  ? window.open(data?.Speedtest_Link)
-                  : alert("Speed Test Link Not Found")
-              }
-              className={`flex gap-2 text-sm font-normal text-left text-[#163143]   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
-            >
-              Speed Test Link{" "}
-              <ExternalLink size={17} strokeWidth={2} color="#69C920" />
-            </button>
-            <button
-              onClick={() =>
-                data?.Applicant_Resume
-                  ? window.open(data?.Applicant_Resume)
-                  : alert("Application Resume Link Not Found")
-              }
-              className={`flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
-            >
-              Application Resume Link{" "}
-              <ExternalLink size={17} strokeWidth={2} color="#69C920" />
-            </button>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-3 pt-4 ">
-          <div className="flex gap-x-5 text-sm">
-            <div className="grow flex flex-col gap-y-2">
-              <Label
-                className="text-sm font-normal  text-[#163143B2]"
-                htmlFor="firstName"
-              >
-                First Name
-              </Label>
-              <Input
-                className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-                name="firstName"
-                value={data?.First_Name ? data.First_Name : "Not Provided"}
-                readOnly
-                type="text"
-              />
-            </div>
-            <div className="grow flex flex-col gap-y-2">
-              <Label
-                className="text-sm font-normal text-[#163143B2]"
-                htmlFor="lastName"
-              >
-                Last Name
-              </Label>
-              <Input
-                className="bg-white  text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-                name="lastName"
-                type="text"
-                value={data?.Last_Name ? data.Last_Name : "Not Provided"}
-                readOnly
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-2">
-            <Label
-              className="text-sm font-normal text-[#163143B2]"
-              htmlFor="email"
-            >
-              Email
-            </Label>
-            <Input
-              className="bg-white h-9 rounded-full font-normal text-[#163143]  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
-              name="email"
-              value={data?.Email_Address ? data.Email_Address : "Not Provided"}
-              readOnly
-              type="text"
-            />
-          </div>
-
-          <div className="flex flex-col gap-y-2">
-            <Label
-              className="text-sm font-normal text-[#163143B2]"
-              htmlFor="phoneNumber"
-            >
-              Phone Number
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="phoneNumber"
-              value={data?.phonenumber ? data.phonenumber : "Not Provided"}
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className="grow flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Skills Assessment Score"
-            >
-              Skills Assessment Score
-            </Label>
-            <Input
-              className="bg-white   text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Skills Assessment Score"
-              type="text"
-              value={
-                data?.Skill_Assesment_Score
-                  ? data.Skill_Assesment_Score
-                  : "Not Provided"
-              }
-              readOnly
-            />
-          </div>
-          <div className="flex gap-x-5 text-sm">
-            <div className="grow flex flex-col gap-y-2">
-              <Label
-                className="text-sm text-[#163143B2] font-normal"
-                htmlFor="Years of Customer Service Experience"
-              >
-                Years of Customer Service Experience
-              </Label>
-              <Input
-                className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-                name="Years of Customer Service Experience"
-                value={
-                  data?.Years_CS_Experience
-                    ? data.Years_CS_Experience
-                    : "Not Provided"
-                }
-                readOnly
-                type="text"
-              />
-            </div>
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="What is your availability?"
-            >
-              What is your availability?
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="What is your availability?"
-              value={data?.Availability ? data.Availability : "Not Provided"}
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="What is your current employment status?"
-            >
-              What is your current employment status?
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="What is your current employment status?"
-              value={
-                data?.Current_Employment_Status
-                  ? data.Current_Employment_Status
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Existing Commitments/Obligations"
-            >
-              Existing Commitments/Obligations
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Existing Commitments/Obligations"
-              value={
-                data?.Existing_Commitment
-                  ? data.Existing_Commitment
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="If Hired, How Soon Would You Be Able To Get Started?"
-            >
-              If Hired, How Soon Would You Be Able To Get Started?
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="If Hired, How Soon Would You Be Able To Get Started?"
-              value={
-                data?.Tentative_Start_Date
-                  ? data.Tentative_Start_Date
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="What country are you applying from?"
-            >
-              What country are you applying from?
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="What country are you applying from?"
-              value={data?.Country ? data.Country : "Not Provided"}
-              readOnly
-              type="text"
-            />
-          </div>
-
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Years of E-commerce Experience"
-            >
-              Years of E-commerce Experience
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Years of E-commerce Experience"
-              value={
-                data?.Year_Ecom_Experience
-                  ? data.Year_Ecom_Experience
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2 ">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Software Tool Experience"
-            >
-              Software Tool Experience
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Software Tool Experience"
-              value={
-                data?.Software_Tool_Experience
-                  ? data.Software_Tool_Experience
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Available To Work Graveyard? (9AM - 6PM EST/PST)"
-            >
-              Available To Work Graveyard? (9AM - 6PM EST/PST)
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Available To Work Graveyard? (9AM - 6PM EST/PST)"
-              value={
-                data?.Graveyard_Availability
-                  ? data.Graveyard_Availability
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Currently Studying Or Planning To Study"
-            >
-              Currently Studying Or Planning To Study
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Currently Studying Or Planning To Study"
-              value={
-                data?.Studying_Planning_Studying
-                  ? data.Studying_Planning_Studying
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm font-normal text-[#163143B2]"
-              htmlFor="Rehirable"
-            >
-              Rehirable
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Rehirable"
-              value={data?.rehirable ? data.rehirable : "Not Provided"}
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm font-normal text-[#163143B2]"
-              htmlFor="Currency"
-            >
-              Currency
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Currency"
-              value={data?.currency ? data.currency : "Not Provided"}
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Device Processor Specs"
-            >
-              Device Processor Specs
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Device Processor Specs"
-              value={
-                data?.device_processor_specs
-                  ? data.device_processor_specs
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Device Ram/Memory Capacity"
-            >
-              Device Ram/Memory Capacity
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Device Ram/Memory Capacity"
-              value={
-                data?.device_ram_memory_capacity
-                  ? data.device_ram_memory_capacity
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Application Code"
-            >
-              Application Code
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Application Code"
-              value={
-                data?.Application_Code ? data.Application_Code : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-
-          <div className=" flex flex-col gap-y-2">
-            <Label
-              className="text-sm text-[#163143B2] font-normal"
-              htmlFor="Years Of Sales Experience"
-            >
-              Years Of Sales Experience
-            </Label>
-            <Input
-              className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-              name="Years Of Sales Experience"
-              value={
-                data?.years_of_sales_experience
-                  ? data.years_of_sales_experience
-                  : "Not Provided"
-              }
-              readOnly
-              type="text"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className=" flex flex-col max-h-screen w-full">
       <Header refetch={refetch} />
@@ -625,7 +177,7 @@ const CandidateTypeCA = () => {
           data={data}
           questions={questions}
         />
-        <CandidateDetailsView />
+        <CandidateDetailsView data={data} />
       </div>
     </div>
   );
@@ -653,11 +205,11 @@ const QuestionnaireView = ({
         className="flex text-[black] "
         style={{ alignItems: "center", paddingLeft: "10px", gap: "10px" }}
       >
-        <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
+        <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium pt-4">
           {data?.candidate_type} Quiz Questionnaire
         </h1>
       </div>
-      <div className=" pl-2 pt-10 pb-5 w-full gap-3 flex flex-col  ">
+      <div className=" pl-2 pt-6 pb-5 w-full gap-3 flex flex-col  ">
         <div className=" text-[#163143B2] text-sm font-semibold">
           Questionnaire AI Scores:
         </div>
@@ -756,7 +308,7 @@ const QuestionnaireView = ({
           <div className=" pl-2 text-sm font-semibold text-[#163143B2">
             Response:
           </div>
-          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+          <div className="p-3  rounded-2xl bg-white relative mr-6">
             {data[`CS_Quiz_2`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
@@ -797,7 +349,7 @@ const QuestionnaireView = ({
           <div className=" pl-2 text-sm font-semibold text-[#163143B2">
             Response:
           </div>
-          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+          <div className="p-3  rounded-2xl bg-white relative mr-6">
             {data[`CS_Quiz_3`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
@@ -838,7 +390,7 @@ const QuestionnaireView = ({
           <div className=" pl-2 text-sm font-semibold text-[#163143B2">
             Response:
           </div>
-          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+          <div className="p-3  rounded-2xl bg-white relative mr-6">
             {data[`CS_Quiz_4`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
@@ -879,7 +431,7 @@ const QuestionnaireView = ({
           <div className=" pl-2 text-sm font-semibold text-[#163143B2">
             Response:
           </div>
-          <div className="p-3 text-[#808080] rounded-2xl bg-white relative mr-6">
+          <div className="p-3  rounded-2xl bg-white relative mr-6">
             {data[`CS_Quiz_5`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
@@ -908,6 +460,454 @@ const QuestionnaireView = ({
               }
             />
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CandidateDetailsView = ({ data }: any) => {
+  return (
+    <div className="px-4 bg-[#ebf3f4] pb-5 pt-4 max-h-screen overflow-y-scroll no-scrollbar w-2/5">
+      <div className="flex text-black  flex-col  ">
+        <h1 style={{ fontWeight: "600" }} className=" text-lg font-medium">
+          Candidate Application
+        </h1>
+        <div className=" font-normal text-sm text-[#163143B2] pt-4">
+          {" "}
+          Details
+        </div>
+        <div className="flex gap-x-2 pt-2">
+          <span
+            className={` ${
+              data?.repeat ? "bg-red-500" : "bg-[#FAFFF6]"
+            } text-sm p-2 px-4 text-black rounded-2xl  flex items-center justify-center border-[#A8A8A8] drop-shadow-sm`}
+          >
+            Duplicate: {data?.repeat ? "Yes" : "No"}
+          </span>
+
+          <span
+            className={` ${
+              data?.candidate_type == "CS" ? "bg-[#FAFFF6]" : "bg-[#faa946]"
+            } text-black p-2 text-sm px-4 rounded-2xl  flex items-center justify-center border-[#A8A8A8] drop-shadow-sm`}
+          >
+            Type: {data?.candidate_type}
+          </span>
+        </div>
+        <div className=" font-normal text-sm text-[#163143B2] pt-4 pb-2">
+          {" "}
+          Links
+        </div>
+        <div className=" lg:text-sm text-xs text-center flex flex-col gap-x-3 gap-y-2 justify-between ">
+          <button
+            onClick={() =>
+              data?.please_record_a_short_loom_video_introducing_yourself
+                ? window.open(
+                    data?.please_record_a_short_loom_video_introducing_yourself
+                  )
+                : alert("Voice Introduction Link Not Found")
+            }
+            className={` flex gap-2 items-center text-sm font-normal text-[#163143] text-left   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+          >
+            Voice Introduction Link{" "}
+            <ExternalLink size={17} strokeWidth={2} color="#69C920" />
+          </button>
+          <button
+            onClick={() =>
+              data?.Speedtest_Link
+                ? window.open(data?.Speedtest_Link)
+                : alert("Speed Test Link Not Found")
+            }
+            className={`flex gap-2 text-sm font-normal text-left text-[#163143]   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+          >
+            Speed Test Link{" "}
+            <ExternalLink size={17} strokeWidth={2} color="#69C920" />
+          </button>
+          <button
+            onClick={() =>
+              data?.Applicant_Resume
+                ? window.open(data?.Applicant_Resume)
+                : alert("Application Resume Link Not Found")
+            }
+            className={`flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+          >
+            Application Resume Link{" "}
+            <ExternalLink size={17} strokeWidth={2} color="#69C920" />
+          </button>
+        </div>
+      </div>
+      <div className="flex flex-col gap-y-3 pt-4 ">
+        <div className="flex gap-x-5 text-sm">
+          <div className="grow flex flex-col gap-y-2">
+            <Label
+              className="text-sm font-normal  text-[#163143B2]"
+              htmlFor="firstName"
+            >
+              First Name
+            </Label>
+            <Input
+              className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+              name="firstName"
+              value={data?.First_Name ? data.First_Name : "Not Provided"}
+              readOnly
+              type="text"
+            />
+          </div>
+          <div className="grow flex flex-col gap-y-2">
+            <Label
+              className="text-sm font-normal text-[#163143B2]"
+              htmlFor="lastName"
+            >
+              Last Name
+            </Label>
+            <Input
+              className="bg-white  text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+              name="lastName"
+              type="text"
+              value={data?.Last_Name ? data.Last_Name : "Not Provided"}
+              readOnly
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal text-[#163143B2]"
+            htmlFor="email"
+          >
+            Email
+          </Label>
+          <Input
+            className="bg-white h-9 rounded-full font-normal text-[#163143]  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+            name="email"
+            value={data?.Email_Address ? data.Email_Address : "Not Provided"}
+            readOnly
+            type="text"
+          />
+        </div>
+
+        <div className="flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal text-[#163143B2]"
+            htmlFor="phoneNumber"
+          >
+            Phone Number
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="phoneNumber"
+            value={data?.phonenumber ? data.phonenumber : "Not Provided"}
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className="grow flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Skills Assessment Score"
+          >
+            Skills Assessment Score
+          </Label>
+          <Input
+            className="bg-white   text-sm h-8 focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Skills Assessment Score"
+            type="text"
+            value={
+              data?.Skill_Assesment_Score
+                ? data.Skill_Assesment_Score
+                : "Not Provided"
+            }
+            readOnly
+          />
+        </div>
+        <div className="flex gap-x-5 text-sm">
+          <div className="grow flex flex-col gap-y-2">
+            <Label
+              className="text-sm text-[#163143B2] font-normal"
+              htmlFor="Years of Customer Service Experience"
+            >
+              Years of Customer Service Experience
+            </Label>
+            <Input
+              className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+              name="Years of Customer Service Experience"
+              value={
+                data?.Years_CS_Experience
+                  ? data.Years_CS_Experience
+                  : "Not Provided"
+              }
+              readOnly
+              type="text"
+            />
+          </div>
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="What is your availability?"
+          >
+            What is your availability?
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="What is your availability?"
+            value={data?.Availability ? data.Availability : "Not Provided"}
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="What is your current employment status?"
+          >
+            What is your current employment status?
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="What is your current employment status?"
+            value={
+              data?.Current_Employment_Status
+                ? data.Current_Employment_Status
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Existing Commitments/Obligations"
+          >
+            Existing Commitments/Obligations
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Existing Commitments/Obligations"
+            value={
+              data?.Existing_Commitment
+                ? data.Existing_Commitment
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="If Hired, How Soon Would You Be Able To Get Started?"
+          >
+            If Hired, How Soon Would You Be Able To Get Started?
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="If Hired, How Soon Would You Be Able To Get Started?"
+            value={
+              data?.Tentative_Start_Date
+                ? data.Tentative_Start_Date
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="What country are you applying from?"
+          >
+            What country are you applying from?
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="What country are you applying from?"
+            value={data?.Country ? data.Country : "Not Provided"}
+            readOnly
+            type="text"
+          />
+        </div>
+
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Years of E-commerce Experience"
+          >
+            Years of E-commerce Experience
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Years of E-commerce Experience"
+            value={
+              data?.Year_Ecom_Experience
+                ? data.Year_Ecom_Experience
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2 ">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Software Tool Experience"
+          >
+            Software Tool Experience
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Software Tool Experience"
+            value={
+              data?.Software_Tool_Experience
+                ? data.Software_Tool_Experience
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Available To Work Graveyard? (9AM - 6PM EST/PST)"
+          >
+            Available To Work Graveyard? (9AM - 6PM EST/PST)
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Available To Work Graveyard? (9AM - 6PM EST/PST)"
+            value={
+              data?.Graveyard_Availability
+                ? data.Graveyard_Availability
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Currently Studying Or Planning To Study"
+          >
+            Currently Studying Or Planning To Study
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Currently Studying Or Planning To Study"
+            value={
+              data?.Studying_Planning_Studying
+                ? data.Studying_Planning_Studying
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal text-[#163143B2]"
+            htmlFor="Rehirable"
+          >
+            Rehirable
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Rehirable"
+            value={data?.rehirable ? data.rehirable : "Not Provided"}
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal text-[#163143B2]"
+            htmlFor="Currency"
+          >
+            Currency
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Currency"
+            value={data?.currency ? data.currency : "Not Provided"}
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Device Processor Specs"
+          >
+            Device Processor Specs
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Device Processor Specs"
+            value={
+              data?.device_processor_specs
+                ? data.device_processor_specs
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Device Ram/Memory Capacity"
+          >
+            Device Ram/Memory Capacity
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Device Ram/Memory Capacity"
+            value={
+              data?.device_ram_memory_capacity
+                ? data.device_ram_memory_capacity
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Application Code"
+          >
+            Application Code
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Application Code"
+            value={
+              data?.Application_Code ? data.Application_Code : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Years Of Sales Experience"
+          >
+            Years Of Sales Experience
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Years Of Sales Experience"
+            value={
+              data?.years_of_sales_experience
+                ? data.years_of_sales_experience
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
         </div>
       </div>
     </div>
