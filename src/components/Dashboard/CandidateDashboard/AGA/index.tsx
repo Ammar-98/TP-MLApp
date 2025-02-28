@@ -239,29 +239,7 @@ const QuestionnaireView = ({
             </div>
           </div>
 
-          {/* {questions.map((_: any, index: any) => (
-            <div className=" flex gap-1">
-              <div className={`font-semibold text-base `}>Q{index + 1}:</div>
-              <div
-                className={` text-[#69C920]
-         ${
-           data[`question${index + 1}_result`]?.score >= 89
-             ? "text-[#69C920]"
-             : data[`question${index + 1}_result`]?.score >= 79
-             ? "text-[#69C920]"
-             : "text-red-400 "
-         } `}
-              >
-                {String(data[`question${index + 1}_result`]?.score).includes(
-                  "."
-                )
-                  ? data[`question${index + 1}_result`]?.score
-                      .toFixed(1)
-                      .replace(/[.,]0$/, "")
-                  : data[`question${index + 1}_result`]?.score}
-              </div>
-            </div>
-          ))} */}
+         
 
         
 
@@ -819,7 +797,7 @@ const CandidateDetailsView = ({ data }: any) => {
           >
             Cover Letter
           </Label>
-          <div className="bg-white  font-normal text-[#163143] drop-shadow-md  rounded-2xl p-3">
+          <div className="bg-white  font-normal text-[#163143] drop-shadow-md  rounded-2xl text-sm  p-3">
             {" "}
             {data?.Cover_Letter ? data.Cover_Letter : "Not Provided"}
           </div>
