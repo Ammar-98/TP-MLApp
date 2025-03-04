@@ -11,11 +11,12 @@ import PublicRoute from './components/AuthRoute/PublicRoute.tsx'
 import HomePage from './App.tsx'
 // import CandidateDashboard from '@/pages/candidate-dashboard.tsx'
 import AppLayout from './components/AppLayout.tsx'
-import Analytics from './pages/Analytics.tsx'
+// import Analytics from './pages/Analytics.tsx'
 import AdminDashboard from './pages/admin-dashboard.tsx'
 import CandidateTypeCA from './components/Dashboard/CandidateDashboard/CS/index.tsx'
 import CandidateTypeCGA from './components/Dashboard/CandidateDashboard/CGA/index.tsx'
 import CandidateTypeAGA from './components/Dashboard/CandidateDashboard/AGA/index.tsx'
+import TicketsManagement from './pages/TicketsManagement.tsx'
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -79,7 +80,7 @@ const router = createBrowserRouter([
         path: '/analytics',
         element: (
           <ProtectedRoute>
-            <Analytics />
+            <TicketsManagement />
           </ProtectedRoute>
         ),
         errorElement: <ErrorPage />,
