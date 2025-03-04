@@ -6,7 +6,8 @@ import {
   ChevronRightCircle,
   // ArrowLeftCircle,
   ChevronLeftCircle,
-  // ArrowUpWideNarrow,
+  ArrowUpWideNarrow,
+  ArrowDownWideNarrow,
 } from "lucide-react";
 
 import { Progress } from "@/components/ui/progress";
@@ -30,8 +31,8 @@ interface ChildProps {
 const Header = ({ refetch }: ChildProps) => {
   const { access_token } = useAuthStore();
   const {
-    // setAscApplicant,
-    // ascApplication,
+    setAscApplicant,
+    ascApplication,
     setNextApplicant,
     setPrevApplicant,
   } = useQuestionResultStore();
@@ -147,10 +148,11 @@ const Header = ({ refetch }: ChildProps) => {
             </Tooltip>
           </TooltipProvider>
         </div>
-        {/* <TooltipProvider delayDuration={400}>
+        <TooltipProvider delayDuration={400}>
           <Tooltip>
             <TooltipTrigger asChild>
               <button
+               className="  items-center justify-center flex h-full"
                 onClick={() => {
                   setAscApplicant(),
                     setTimeout(() => {
@@ -158,14 +160,19 @@ const Header = ({ refetch }: ChildProps) => {
                     }, 0);
                 }}
               >
-                <ArrowUpWideNarrow className="w-8 h-8 text-[black]  cursor-pointer" />
+
+                {ascApplication === "true" ? (
+                  <ArrowUpWideNarrow strokeWidth={2} className="w-6 h-6 text-[black]  cursor-pointer" />
+                ) : (
+                  <ArrowDownWideNarrow strokeWidth={2} className="w-6 h-6 text-[black]  cursor-pointer" />
+                )}
               </button>
             </TooltipTrigger>
             <TooltipContent className=" bg-green-400 text-white">
               <p>Order by {ascApplication === "true" ? "Oldest" : "Newest"} </p>
             </TooltipContent>
           </Tooltip>
-        </TooltipProvider> */}
+        </TooltipProvider>
         <div className="flex items-center gap-x-4 w-full ">
           <Progress
             value={(data?.total_graded / data?.total_assigned) * 100}
