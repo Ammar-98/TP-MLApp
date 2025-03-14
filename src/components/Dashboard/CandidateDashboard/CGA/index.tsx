@@ -529,7 +529,7 @@ const CandidateDetailsView = ({ data }: any) => {
                 ? window.open(data?.Speedtest_Link)
                 : alert("Speed Test Link Not Found")
             }
-            className={`flex gap-2 text-sm font-normal text-left text-[#163143]   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+            className={`w-fit bg-white px-2 py-2 rounded-full  flex gap-2 text-sm font-normal text-left text-[#163143]   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
           >
             Speed Test Link{" "}
             <ExternalLink size={17} strokeWidth={2} color="#69C920" />
@@ -540,7 +540,7 @@ const CandidateDetailsView = ({ data }: any) => {
                 ? window.open(data?.Applicant_Resume)
                 : alert("Application Resume Link Not Found")
             }
-            className={`flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+            className={` w-fit bg-white px-2 py-2 rounded-full  flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
           >
             Application Resume Link{" "}
             <ExternalLink size={17} strokeWidth={2} color="#69C920" />
@@ -552,7 +552,7 @@ const CandidateDetailsView = ({ data }: any) => {
                 ? window.open(data?.portfolio_link)
                 : alert(" Creative Portfolio Link Not Found")
             }
-            className={`flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+            className={` w-fit bg-white px-2 py-2 rounded-full  flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
           >
             Creative Portfolio Link{" "}
             <ExternalLink size={17} strokeWidth={2} color="#69C920" />
@@ -560,7 +560,7 @@ const CandidateDetailsView = ({ data }: any) => {
         </div>
       </div>
       <div className="flex flex-col gap-y-3 pt-4">
-        <div className="flex gap-x-5 text-sm">
+        {/* <div className="flex gap-x-5 text-sm">
           <div className="grow flex flex-col gap-y-2">
             <Label
               className="text-sm font-normal  text-[#163143B2]"
@@ -591,6 +591,22 @@ const CandidateDetailsView = ({ data }: any) => {
               readOnly
             />
           </div>
+        </div> */}
+         <div className="flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal text-[#163143B2]"
+            htmlFor="Ticket Name"
+          >
+            Ticket Name
+          </Label>
+          <Input
+            className="bg-white h-9 rounded-full font-normal text-[#163143]  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+            name="email"
+            value={
+               data?.First_Name  ? data.First_Name + data?.Last_Name : "Not Provided"}
+            readOnly
+            type="text"
+          />
         </div>
         <div className="flex flex-col gap-y-2">
           <Label
@@ -644,15 +660,87 @@ const CandidateDetailsView = ({ data }: any) => {
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
-            htmlFor="Years of Administrative Experience"
+            htmlFor="Device Processor Specs"
           >
-            Years of Administrative Experience
+            Device Processor Specs
           </Label>
           <Input
             className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-            name="Years of Administrative Experience"
+            name="Device Processor Specs"
             value={
-              data?.years_admin_exp ? data.years_admin_exp : "Not Provided"
+              data?.device_processor_specs
+                ? data.device_processor_specs
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal  text-[#163143B2]"
+            htmlFor="Device Ram/Memory Capacity"
+          >
+            Device Ram/Memory Capacity
+          </Label>
+          <Input
+            className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Device Ram/Memory Capacity"
+            value={
+              data?.device_ram_memory_capacity
+                ? data.device_ram_memory_capacity
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal  text-[#163143B2]"
+            htmlFor="Years of Graphic Design Experience"
+          >
+            Years of Graphic Design Experience
+          </Label>
+          <Input
+            className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Years of Graphic Design Experience"
+            value={
+              data?.years_graphic_design_exp ? data.years_graphic_design_exp : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal  text-[#163143B2]"
+            htmlFor="Years of Adobe Creative Cloud Experience"
+          >
+            Years of Adobe Creative Cloud Experience
+          </Label>
+          <Input
+            className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Years of Adobe Creative Cloud Experience"
+            value={
+              data?.years_adobe_exp ? data.years_adobe_exp : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal  text-[#163143B2]"
+            htmlFor="Years of Video Editing Experience"
+          >
+            Years of Video Editing Experience
+          </Label>
+          <Input
+            className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Years of Video Editing Experience"
+            value={
+              data?.years_video_editing_exp ? data.years_video_editing_exp : "Not Provided"
             }
             readOnly
             type="text"
@@ -674,18 +762,6 @@ const CandidateDetailsView = ({ data }: any) => {
           />
         </div>
 
-        <div className=" flex flex-col gap-y-2">
-          <Label
-            className="text-sm font-normal  text-[#163143B2]"
-            htmlFor="coverLetter"
-          >
-            Prior Experience/Roles
-          </Label>
-          <div className="bg-white font-normal text-[#163143]  drop-shadow-md text-sm rounded-2xl p-3">
-            {" "}
-            {data?.previous_exp ? data.previous_exp : "Not Provided"}
-          </div>
-        </div>
 
         <div className=" flex flex-col gap-y-2">
           <Label
@@ -766,12 +842,11 @@ const CandidateDetailsView = ({ data }: any) => {
           >
             Cover Letter
           </Label>
-          <div className="bg-white  font-normal text-[#163143] drop-shadow-md text-sm  rounded-2xl p-3">
+          <div className="bg-white  font-normal text-[#163143] drop-shadow-md  rounded-2xl text-sm  p-3">
             {" "}
             {data?.Cover_Letter ? data.Cover_Letter : "Not Provided"}
           </div>
         </div>
-
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
@@ -810,6 +885,7 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
+
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
@@ -829,6 +905,7 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
+
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
@@ -878,20 +955,68 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
-            htmlFor="Device Processor Specs"
+            htmlFor="prior experience"
           >
-            Device Processor Specs
+            Prior Experience/Roles
+          </Label>
+          <div className="bg-white font-normal text-[#163143]  drop-shadow-md text-sm rounded-2xl p-3">
+            {" "}
+            {data?.previous_exp ? data.previous_exp : "Not Provided"}
+          </div>
+        </div>
+
+
+
+
+       
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal  text-[#163143B2]"
+            htmlFor="Years of Administrative Experience"
+          >
+            Years of Administrative Experience
           </Label>
           <Input
             className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-            name="Device Processor Specs"
+            name="Years of Administrative Experience"
             value={
-              data?.device_processor_specs
-                ? data.device_processor_specs
-                : "Not Provided"
+              data?.years_admin_exp ? data.years_admin_exp : "Not Provided"
             }
             readOnly
             type="text"
@@ -900,22 +1025,33 @@ const CandidateDetailsView = ({ data }: any) => {
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
-            htmlFor="Device Ram/Memory Capacity"
+            htmlFor="What is your availability?"
           >
-            Device Ram/Memory Capacity
+            What is your availability?
           </Label>
           <Input
             className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-            name="Device Ram/Memory Capacity"
-            value={
-              data?.device_ram_memory_capacity
-                ? data.device_ram_memory_capacity
-                : "Not Provided"
-            }
+            name="What is your availability?"
+            value={data?.Availability ? data.Availability : "Not Provided"}
             readOnly
             type="text"
           />
         </div>
+
+       
+
+       
+        
+        
+        
+      
+
+        
+        
+       
+       
+        
+       
       </div>
     </div>
   );

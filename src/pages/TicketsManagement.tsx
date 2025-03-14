@@ -1,4 +1,8 @@
 import CustomTable from "@/components/CustomTableComponent/CustomTableComponent";
+import EmailFilter from "@/components/FIlters/EmailFilter";
+import FullNameFilter from "@/components/FIlters/FullNameFilter";
+import TicketStatusFilter from "@/components/FIlters/TicketStatusFilter";
+import TypeOfTicketsFilter from "@/components/FIlters/TypeOfTicketsFilter";
 import { Tab, Tabs } from "@/components/Tabs/Tabs";
 import { Check, ExternalLink, Filter } from "lucide-react";
 import { useState } from "react";
@@ -9,11 +13,17 @@ function TicketsManagement() {
       <div className=" text-2xl font-semibold text-[#163143]">
         Tickets Management
       </div>
-      <div className=" flex w-full  my-5">
+      <div className=" flex w-full  my-5 gap-3">
         <div className=" flex items-center gap-1">
           <Filter strokeWidth={2} size={16} fill="black" />
           <span className=" text-sm font-bold">Filters: </span>
+         
         </div>
+        <TicketStatusFilter className=" bg-white flex items-center justify-between px-3"/>
+        <TypeOfTicketsFilter className=" bg-white flex items-center justify-between px-3"/>
+        <FullNameFilter className=" bg-white flex items-center justify-between px-3"/>
+        <EmailFilter className=" bg-white flex items-center justify-between px-3"/>
+
       </div>
       <Tabs>
         <Tab data-label="All Tickets">
@@ -28,6 +38,8 @@ function TicketsManagement() {
 }
 
 const AllTicketsView = () => {
+
+  
   const ColumnData = [
     {
       name: "Ful lName",
@@ -263,18 +275,18 @@ const AllTicketsView = () => {
       <div className=" flex w-full justify-between">
         <div className=" flex items-center gap-3">
           <span className=" text-xl font-semibold">Overview</span>
-          <div className=" w-[160px]  flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[white]">
+          <div className=" w-[160px]  cursor-pointer flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[white]">
             Select RS
           </div>
-          <div className=" w-[160px]  flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[#69C920] text-[white]">
+          <div className=" w-[160px] cursor-pointer flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[#69C920] text-[white]">
             Apply
           </div>
         </div>
         <div className=" flex items-center gap-2 mr-4">
-          <div className="w-[120px]  flex items-center justify-center border border-[#69C920]  rounded-full py-2 text-sm font-normal bg-[white]">
+          <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#69C920]  rounded-full py-2 text-sm font-normal bg-[white]">
             Pending
           </div>
-          <div className="w-[120px]  flex items-center justify-center border border-[#FF3434]  rounded-full py-2 text-sm font-normal bg-[white]">
+          <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#FF3434]  rounded-full py-2 text-sm font-normal bg-[white]">
             Failed
           </div>
         </div>

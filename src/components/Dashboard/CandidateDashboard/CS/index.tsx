@@ -509,7 +509,7 @@ const CandidateDetailsView = ({ data }: any) => {
                   )
                 : alert("Voice Introduction Link Not Found")
             }
-            className={` flex gap-2 items-center text-sm font-normal text-[#163143] text-left   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+            className={`  w-fit bg-white px-2 py-2 rounded-full  flex gap-2 items-center text-sm font-normal text-[#163143] text-left   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
           >
             Voice Introduction Link{" "}
             <ExternalLink size={17} strokeWidth={2} color="#69C920" />
@@ -520,7 +520,7 @@ const CandidateDetailsView = ({ data }: any) => {
                 ? window.open(data?.Speedtest_Link)
                 : alert("Speed Test Link Not Found")
             }
-            className={`flex gap-2 text-sm font-normal text-left text-[#163143]   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+            className={` w-fit bg-white px-2 py-2 rounded-full flex gap-2 text-sm font-normal text-left text-[#163143]   tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
           >
             Speed Test Link{" "}
             <ExternalLink size={17} strokeWidth={2} color="#69C920" />
@@ -531,7 +531,7 @@ const CandidateDetailsView = ({ data }: any) => {
                 ? window.open(data?.Applicant_Resume)
                 : alert("Application Resume Link Not Found")
             }
-            className={`flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
+            className={`  w-fit bg-white px-2 py-2 rounded-full flex gap-2 text-sm font-normal text-left text-[#163143]  tracking-[1px] hover:text-black duration-300 after:content-[''] after:bg-[#6BF4A4] after:h-[3px] after:w-[100%] after:left-0 after:-bottom-[10px] after:absolute`}
           >
             Application Resume Link{" "}
             <ExternalLink size={17} strokeWidth={2} color="#69C920" />
@@ -539,7 +539,7 @@ const CandidateDetailsView = ({ data }: any) => {
         </div>
       </div>
       <div className="flex flex-col gap-y-3 pt-4 ">
-        <div className="flex gap-x-5 text-sm">
+        {/* <div className="flex gap-x-5 text-sm">
           <div className="grow flex flex-col gap-y-2">
             <Label
               className="text-sm font-normal  text-[#163143B2]"
@@ -555,6 +555,7 @@ const CandidateDetailsView = ({ data }: any) => {
               type="text"
             />
           </div>
+          
           <div className="grow flex flex-col gap-y-2">
             <Label
               className="text-sm font-normal text-[#163143B2]"
@@ -570,6 +571,22 @@ const CandidateDetailsView = ({ data }: any) => {
               readOnly
             />
           </div>
+        </div> */}
+        <div className="flex flex-col gap-y-2">
+          <Label
+            className="text-sm font-normal text-[#163143B2]"
+            htmlFor="Ticket Name"
+          >
+            Ticket Name
+          </Label>
+          <Input
+            className="bg-white h-9 rounded-full font-normal text-[#163143]  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+            name="email"
+            value={
+               data?.First_Name  ? data.First_Name + data?.Last_Name : "Not Provided"}
+            readOnly
+            type="text"
+          />
         </div>
         <div className="flex flex-col gap-y-2">
           <Label
@@ -645,6 +662,45 @@ const CandidateDetailsView = ({ data }: any) => {
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Device Processor Specs"
+          >
+            Device Processor Specs
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Device Processor Specs"
+            value={
+              data?.device_processor_specs
+                ? data.device_processor_specs
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
+            htmlFor="Device Ram/Memory Capacity"
+          >
+            Device Ram/Memory Capacity
+          </Label>
+          <Input
+            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
+            name="Device Ram/Memory Capacity"
+            value={
+              data?.device_ram_memory_capacity
+                ? data.device_ram_memory_capacity
+                : "Not Provided"
+            }
+            readOnly
+            type="text"
+          />
+        </div>
+
+        <div className=" flex flex-col gap-y-2">
+          <Label
+            className="text-sm text-[#163143B2] font-normal"
             htmlFor="What is your availability?"
           >
             What is your availability?
@@ -657,6 +713,7 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
+        
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm text-[#163143B2] font-normal"
@@ -836,25 +893,7 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
-        <div className=" flex flex-col gap-y-2">
-          <Label
-            className="text-sm text-[#163143B2] font-normal"
-            htmlFor="Device Processor Specs"
-          >
-            Device Processor Specs
-          </Label>
-          <Input
-            className="bg-white h-9  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-            name="Device Processor Specs"
-            value={
-              data?.device_processor_specs
-                ? data.device_processor_specs
-                : "Not Provided"
-            }
-            readOnly
-            type="text"
-          />
-        </div>
+       
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm text-[#163143B2] font-normal"
