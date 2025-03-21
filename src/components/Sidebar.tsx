@@ -57,7 +57,7 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/CS")
               : navigate("/admin-dashboard")
           }
-          className=" hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm"
+          className=" hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm "
           style={{
             background:
               location.pathname == "/candidate-dashboard/CS"
@@ -67,6 +67,8 @@ const Sidebar = () => {
               location.pathname == "/candidate-dashboard/CS"
                 ? "white"
                 : "black",
+            fontWeight:
+              location.pathname == "/candidate-dashboard/CS" ? 600 : 400,
           }}
         >
           CS
@@ -77,7 +79,7 @@ const Sidebar = () => {
               ? navigate("/candidate-dashboard/AGA")
               : navigate("/admin-dashboard")
           }
-          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm"
+          className="  hover:scale-110 duration-500 rounded-full  border-[#69C920] border-[1px] w-11 h-11 text-sm "
           style={{
             background:
               location.pathname == "/candidate-dashboard/AGA"
@@ -87,6 +89,8 @@ const Sidebar = () => {
               location.pathname == "/candidate-dashboard/AGA"
                 ? "white"
                 : "black",
+            fontWeight:
+              location.pathname == "/candidate-dashboard/AGA" ? 600 : 400,
           }}
         >
           AGA
@@ -107,6 +111,8 @@ const Sidebar = () => {
               location.pathname == "/candidate-dashboard/CGA"
                 ? "white"
                 : "black",
+            fontWeight:
+              location.pathname == "/candidate-dashboard/CGA" ? 600 : 400,
           }}
         >
           CGA

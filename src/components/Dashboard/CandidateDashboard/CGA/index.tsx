@@ -4,7 +4,7 @@ import {
   questionsCGA,
   questionsCS,
 } from "@/components/StaticData/QuesionsData";
-import { ExternalLink } from "lucide-react";
+import { Copy, ExternalLink } from "lucide-react";
 
 // import {
 //   Dialog,
@@ -229,15 +229,16 @@ const QuestionnaireView = ({
           {data?.candidate_type} Quiz Questionnaire
         </h1>
       </div>
-      <div className=" pl-2 pt-6 pb-5 w-full gap-3 flex flex-col  ">
-        <div className=" text-[#163143B2] text-sm font-semibold">
+      <div className=" pl-2 pt-12 pb-12 w-full gap-3 flex flex-col  ">
+        <div className=" text-[#163143B2] text-sm font-bold">
           Questionnaire AI Scores:
         </div>
         <div className=" flex w-full gap-4">
-          <div className=" flex gap-1">
+          <div className=" flex gap-1 items-center">
             <div className={`font-semibold text-base `}>Avg AI Score:</div>
             <div
               className={`
+                text-[20px] font-semibold
          ${
            data?.aggregate_score_ml >= 89
              ? "text-[#69C920]"
@@ -251,10 +252,10 @@ const QuestionnaireView = ({
           </div>
 
           {questions.map((_: any, index: any) => (
-            <div className=" flex gap-1">
+            <div className=" flex gap-1 items-center">
               <div className={`font-semibold text-base `}>Q{index + 1}:</div>
               <div
-                className={` text-[#69C920]
+                className={` text-[#69C920] text-xl font-semibold
          ${
            data[`question${index + 1}_result`]?.score >= 89
              ? "text-[#69C920]"
@@ -275,8 +276,8 @@ const QuestionnaireView = ({
           ))}
         </div>
       </div>
-      <div className="flex flex-col gap-y-5 text-sm ">
-        <div className=" flex flex-col gap-y-1 ">
+      <div className="flex flex-col gap-y-10 text-sm ">
+        <div className=" flex flex-col gap-y-2 ">
           <div className=" pl-2 font-bold text-sm tect-[#163143B2">
             Question 1
           </div>
@@ -599,14 +600,26 @@ const CandidateDetailsView = ({ data }: any) => {
           >
             Ticket Name
           </Label>
-          <Input
-            className="bg-white h-9 rounded-full font-normal text-[#163143]  focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
-            name="email"
-            value={
-               data?.First_Name  ? data.First_Name + data?.Last_Name : "Not Provided"}
-            readOnly
-            type="text"
-          />
+          <div className=" bg-white border flex items-center justify-center drop-shadow-md rounded-full pr-4">
+            <Input
+              className="bg-white h-9 rounded-full font-normal text-[#163143] border-0 "
+              name="ticketname"
+              value={
+                data?.First_Name
+                  ? data.First_Name + data?.Last_Name
+                  : "Not Provided"
+              }
+              readOnly
+              type="text"
+            />
+            <Copy
+              color="black"
+              className=" cursor-pointer"
+              strokeWidth={2}
+              size={15}
+              onClick={() => null}
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-y-2">
           <Label
@@ -615,13 +628,22 @@ const CandidateDetailsView = ({ data }: any) => {
           >
             Email
           </Label>
-          <Input
-            className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
-            name="email"
-            value={data?.Email_Address ? data.Email_Address : "Not Provided"}
-            readOnly
-            type="text"
-          />
+          <div className=" bg-white border flex items-center justify-center drop-shadow-md rounded-full pr-4">
+            <Input
+              className="bg-white h-9 rounded-full font-normal text-[#163143] border-0 "
+              name="email"
+              value={data?.Email_Address ? data.Email_Address : "Not Provided"}
+              readOnly
+              type="text"
+            />
+            <Copy
+              color="black"
+              className=" cursor-pointer"
+              strokeWidth={2}
+              size={15}
+              onClick={() => null}
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-y-2">
           <Label

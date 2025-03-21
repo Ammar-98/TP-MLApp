@@ -17,13 +17,11 @@ function TicketsManagement() {
         <div className=" flex items-center gap-1">
           <Filter strokeWidth={2} size={16} fill="black" />
           <span className=" text-sm font-bold">Filters: </span>
-         
         </div>
-        <TicketStatusFilter className=" bg-white flex items-center justify-between px-3"/>
-        <TypeOfTicketsFilter className=" bg-white flex items-center justify-between px-3"/>
-        <FullNameFilter className=" bg-white flex items-center justify-between px-3"/>
-        <EmailFilter className=" bg-white flex items-center justify-between px-3"/>
-
+        <TicketStatusFilter className=" bg-white flex items-center justify-between px-3" />
+        <TypeOfTicketsFilter className=" bg-white flex items-center justify-between px-3" />
+        <FullNameFilter className=" bg-white flex items-center justify-between px-3" />
+        <EmailFilter className=" bg-white flex items-center justify-between px-3" />
       </div>
       <Tabs>
         <Tab data-label="All Tickets">
@@ -38,15 +36,13 @@ function TicketsManagement() {
 }
 
 const AllTicketsView = () => {
-
-  
   const ColumnData = [
     {
       name: "Ful lName",
       width: 150,
       sticky: true,
       keyword: "fullName",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -56,7 +52,7 @@ const AllTicketsView = () => {
       width: 150,
       sticky: true,
       keyword: "rs",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -66,7 +62,7 @@ const AllTicketsView = () => {
       width: 100,
       sticky: false,
       keyword: "Q1",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -76,7 +72,7 @@ const AllTicketsView = () => {
       width: 100,
       sticky: false,
       keyword: "Q2",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -86,7 +82,7 @@ const AllTicketsView = () => {
       width: 100,
       sticky: false,
       keyword: "Q3",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -96,7 +92,7 @@ const AllTicketsView = () => {
       width: 100,
       sticky: false,
       keyword: "Q4",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -106,7 +102,7 @@ const AllTicketsView = () => {
       width: 100,
       sticky: false,
       keyword: "Q5",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -116,7 +112,7 @@ const AllTicketsView = () => {
       width: 100,
       sticky: false,
       keyword: "avgScore",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
@@ -126,14 +122,13 @@ const AllTicketsView = () => {
       width: 150,
       sticky: false,
       keyword: "ticketsStatus",
-    sorting: true,
+      sorting: true,
 
       // child?: any;
       // sorting?: boolean;
     },
   ];
   const DummyData = [
-   
     {
       fullName: "Beta System",
       rs: "XYData",
@@ -245,22 +240,34 @@ const AllTicketsView = () => {
       ticketsStatus: "Passed",
     },
   ];
-  
 
-  const CheckBox = () => {
-    const [selected, setselected] = useState(false);
+  const [selected, setselected] = useState<any[]>([]);
+
+  const handleSelect = (item: any) => {
+    let temp = [...selected];
+    if (selected.includes(item)) {
+      temp = temp.filter((ticket) => ticket !== item);
+      setselected(temp);
+    } else {
+      temp.push(item);
+      setselected(temp);
+      console.log("temp", temp);
+    }
+  };
+
+  const CheckBox = ({ item, selected, handleSelect }: any) => {
     return (
       <div
         style={{
-          background: selected == true ? "#69C920" : "white",
-          borderWidth: selected == true ? 0 : 1,
-          height:'17px',
-          width:'17px'
+          background: selected.includes(item) ? "#69C920" : "white",
+          borderWidth: selected.includes(item) ? 0 : 1,
+          height: "17px",
+          width: "17px",
         }}
-        onClick={() => setselected(!selected)}
+        onClick={() => handleSelect(item)}
         className="  rounded-sm border-black flex items-center justify-center cursor-pointer "
       >
-        {selected == true ? (
+        {selected.includes(item) ? (
           <Check color="white" size={"90%"} strokeWidth={2} className=" " />
         ) : null}
       </div>
@@ -268,7 +275,6 @@ const AllTicketsView = () => {
   };
   const [sortBy, setsortBy] = useState("");
   const [sortOrder, setsortOrder] = useState("asc");
-
 
   return (
     <div>
@@ -305,7 +311,11 @@ const AllTicketsView = () => {
           }}
           tableIcon={{
             Icon: [
-              <CheckBox />,
+              <CheckBox
+                // item={yourItem}
+                selected={selected}
+                handleSelect={handleSelect}
+              />,
 
               <ExternalLink
                 color="#69C920"
@@ -314,9 +324,10 @@ const AllTicketsView = () => {
                 className=" cursor-pointer"
               />,
             ],
+
             width: 100,
             sticky: true,
-            onClick: null,
+            onClick: (item: any) => handleSelect(item),
           }}
         />
       </div>
