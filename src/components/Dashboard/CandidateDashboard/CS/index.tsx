@@ -272,7 +272,7 @@ const QuestionnaireView = ({
             {data[`CS_Quiz_1`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-            Update Yout Score Here:
+            Update Your Score Here:
           </div>
           <div>
             <input
@@ -313,7 +313,7 @@ const QuestionnaireView = ({
             {data[`CS_Quiz_2`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-            Update Yout Score Here:
+            Update Your Score Here:
           </div>
           <div>
             <input
@@ -354,7 +354,7 @@ const QuestionnaireView = ({
             {data[`CS_Quiz_3`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-            Update Yout Score Here:
+            Update Your Score Here:
           </div>
           <div>
             <input
@@ -395,7 +395,7 @@ const QuestionnaireView = ({
             {data[`CS_Quiz_4`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-            Update Yout Score Here:
+            Update Your Score Here:
           </div>
           <div>
             <input
@@ -436,7 +436,7 @@ const QuestionnaireView = ({
             {data[`CS_Quiz_5`]}
           </div>
           <div className=" pl-2 text-sm font-semibold text-[#163143] pt-3 ">
-            Update Yout Score Here:
+            Update Your Score Here:
           </div>
           <div>
             <input
