@@ -12,8 +12,50 @@ export default function CGATable() {
       sorting: true,
     },
     {
-      name: "Email",
+      name: "RS (Vetter)",
       width: 150,
+      sticky: false,
+      keyword: "rsVetter",
+      sorting: true,
+    },
+    {
+      name: "Q1",
+      width: 400,
+      sticky: false,
+      keyword: "q1",
+      sorting: true,
+    },
+    {
+      name: "Q2",
+      width: 400,
+      sticky: false,
+      keyword: "q2",
+      sorting: true,
+    },
+    {
+      name: "Q3",
+      width: 400,
+      sticky: false,
+      keyword: "q3",
+      sorting: true,
+    },
+    {
+      name: "Q4",
+      width: 450,
+      sticky: false,
+      keyword: "q4",
+      sorting: true,
+    },
+    {
+      name: "Q5",
+      width: 600,
+      sticky: false,
+      keyword: "q5",
+      sorting: true,
+    },
+    {
+      name: "Email",
+      width: 200,
       sticky: false,
       keyword: "email",
       sorting: true,
@@ -142,6 +184,12 @@ export default function CGATable() {
   const DummyData = [
     {
       ticketName: "Ticket 1",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email1@example.com",
       phoneNumber: "123-456-7890",
       skillsAssessmentScore: 85,
@@ -163,6 +211,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 2",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email2@example.com",
       phoneNumber: "987-654-3210",
       skillsAssessmentScore: 92,
@@ -184,6 +238,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 3",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email3@example.com",
       phoneNumber: "111-222-3333",
       skillsAssessmentScore: 78,
@@ -205,6 +265,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 4",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email4@example.com",
       phoneNumber: "444-555-6666",
       skillsAssessmentScore: 88,
@@ -226,6 +292,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 5",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email5@example.com",
       phoneNumber: "777-888-9999",
       skillsAssessmentScore: 95,
@@ -247,6 +319,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 6",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email6@example.com",
       phoneNumber: "321-654-0987",
       skillsAssessmentScore: 80,
@@ -268,6 +346,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 7",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email7@example.com",
       phoneNumber: "901-234-5678",
       skillsAssessmentScore: 75,
@@ -289,6 +373,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 8",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email8@example.com",
       phoneNumber: "876-543-2109",
       skillsAssessmentScore: 90,
@@ -310,6 +400,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 9",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email9@example.com",
       phoneNumber: "234-567-8901",
       skillsAssessmentScore: 82,
@@ -331,6 +427,12 @@ export default function CGATable() {
     },
     {
       ticketName: "Ticket 10",
+      rsVetter: "RS(Vetter)",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "What adjustments would you make to this photo to make it more visually appealing? (identify assets to use)",
+      q5: "Can you describe your design process from start to finish? How do you approach a new design project and what steps do you take to bring it to completion?",
       email: "email10@example.com",
       phoneNumber: "789-012-3456",
       skillsAssessmentScore: 87,
@@ -391,7 +493,7 @@ export default function CGATable() {
     <div>
       <div className=" flex w-full justify-between">
         <div className=" flex items-center gap-3">
-          <span className=" text-xl font-semibold">CGA</span>
+          <span className=" text-xl font-semibold">Overview</span>
           <div className=" w-[160px]  cursor-pointer flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[white]">
             Select RS
           </div>

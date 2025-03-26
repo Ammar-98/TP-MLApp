@@ -12,8 +12,50 @@ export default function AGATable() {
       sorting: true,
     },
     {
-      name: "Email",
+      name: "RS (Vetter)",
       width: 150,
+      sticky: false,
+      keyword: "rsVetter",
+      sorting: true,
+    },
+    {
+      name: "Q1",
+      width: 400,
+      sticky: false,
+      keyword: "q1",
+      sorting: true,
+    },
+    {
+      name: "Q2",
+      width: 400,
+      sticky: false,
+      keyword: "q2",
+      sorting: true,
+    },
+    {
+      name: "Q3",
+      width: 400,
+      sticky: false,
+      keyword: "q3",
+      sorting: true,
+    },
+    {
+      name: "Q4",
+      width: 450,
+      sticky: false,
+      keyword: "q4",
+      sorting: true,
+    },
+    {
+      name: "Q5",
+      width: 600,
+      sticky: false,
+      keyword: "q5",
+      sorting: true,
+    },
+    {
+      name: "Email",
+      width: 200,
       sticky: false,
       keyword: "email",
       sorting: true,
@@ -163,6 +205,12 @@ export default function AGATable() {
   const DummyData = [
     {
       ticketName: "Support Ticket 1",
+      rsVetter: "John Doe",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test1@example.com",
       phoneNumber: "123-456-7890",
       skillsAssessmentScore: 85,
@@ -187,6 +235,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Inquiry Ticket 2",
+      rsVetter: "Jane Smith",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test2@example.com",
       phoneNumber: "987-654-3210",
       skillsAssessmentScore: 92,
@@ -211,6 +265,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Problem Ticket 3",
+      rsVetter: "Alice Johnson",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test3@example.com",
       phoneNumber: "111-222-3333",
       skillsAssessmentScore: 78,
@@ -235,6 +295,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Question Ticket 4",
+      rsVetter: "Bob Williams",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test4@example.com",
       phoneNumber: "444-555-6666",
       skillsAssessmentScore: 88,
@@ -259,6 +325,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Feedback Ticket 5",
+      rsVetter: "Charlie Brown",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test5@example.com",
       phoneNumber: "777-888-9999",
       skillsAssessmentScore: 95,
@@ -283,6 +355,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Issue Ticket 6",
+      rsVetter: "Diana Davis",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test6@example.com",
       phoneNumber: "333-444-5555",
       skillsAssessmentScore: 80,
@@ -307,6 +385,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Request Ticket 7",
+      rsVetter: "Ethan Garcia",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test7@example.com",
       phoneNumber: "123-789-4560",
       skillsAssessmentScore: 75,
@@ -331,6 +415,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Bug Ticket 8",
+      rsVetter: "Fiona Hernandez",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test8@example.com",
       phoneNumber: "654-321-0987",
       skillsAssessmentScore: 90,
@@ -355,6 +445,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Feature Ticket 9",
+      rsVetter: "George Lee",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test9@example.com",
       phoneNumber: "987-123-6540",
       skillsAssessmentScore: 82,
@@ -379,6 +475,12 @@ export default function AGATable() {
     },
     {
       ticketName: "Improvement Ticket 10",
+      rsVetter: "Hannah Kim",
+      q1: "What did you do on the day of your last birthday?",
+      q2: "Imagine you woke up on your perfect day today! Tell us what you are doing this day",
+      q3: "Tell us about what success looks like for you in the next 5 years.",
+      q4: "In your opinion, what are the key qualities or skills that an effective Administrative Growth Assistant should possess? How do you embody these qualities in your work?",
+      q5: "Can you provide an example of a time when you successfully collaborated with colleagues to achieve a common goal or complete a project? What strategies did you use to contribute to the team's success?",
       email: "test10@example.com",
       phoneNumber: "456-987-3210",
       skillsAssessmentScore: 87,
@@ -442,7 +544,7 @@ export default function AGATable() {
     <div>
       <div className=" flex w-full justify-between">
         <div className=" flex items-center gap-3">
-          <span className=" text-xl font-semibold">AGA</span>
+          <span className=" text-xl font-semibold">Overview</span>
           <div className=" w-[160px]  cursor-pointer flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[white]">
             Select RS
           </div>

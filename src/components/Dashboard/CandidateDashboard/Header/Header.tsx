@@ -13,16 +13,12 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { useQuestionResultStore } from "@/store/useQuestionResultStore";
 import Loading from "./Loading";
-import { FailCandidateButton } from "./FailCandidateButton";
-import { PendingButton } from "./PendingButton";
-import { CandidatePassButton } from "./CandidatepassButton";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { InviteToHireFlixButton } from "./InviteToHireFlix";
 
 interface ChildProps {
   refetch: () => Promise<any>; // Define the prop type for the refetch function
@@ -152,7 +148,7 @@ const Header = ({ refetch }: ChildProps) => {
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-               className="  items-center justify-center flex h-full"
+                className="  items-center justify-center flex h-full"
                 onClick={() => {
                   setAscApplicant(),
                     setTimeout(() => {
@@ -160,11 +156,16 @@ const Header = ({ refetch }: ChildProps) => {
                     }, 0);
                 }}
               >
-
                 {ascApplication === "true" ? (
-                  <ArrowUpWideNarrow strokeWidth={2} className="w-6 h-6 text-[black]  cursor-pointer" />
+                  <ArrowUpWideNarrow
+                    strokeWidth={2}
+                    className="w-6 h-6 text-[black]  cursor-pointer"
+                  />
                 ) : (
-                  <ArrowDownWideNarrow strokeWidth={2} className="w-6 h-6 text-[black]  cursor-pointer" />
+                  <ArrowDownWideNarrow
+                    strokeWidth={2}
+                    className="w-6 h-6 text-[black]  cursor-pointer"
+                  />
                 )}
               </button>
             </TooltipTrigger>
@@ -182,13 +183,6 @@ const Header = ({ refetch }: ChildProps) => {
             {data?.total_graded}/{data?.total_assigned}
           </span>
         </div>
-      </div>
-
-      <div className="flex w-full gap-x-2 items-center justify-end">
-        <PendingButton refetch={refetch} />
-        <FailCandidateButton refetch={refetch} />
-        <CandidatePassButton refetch={refetch} />
-        <InviteToHireFlixButton refetch={refetch} />
       </div>
     </header>
   );

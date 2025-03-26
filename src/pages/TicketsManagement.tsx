@@ -3,8 +3,13 @@ import DailyScreeningCountPerRS from "@/components/BarGraphs/DailyScreeningCount
 import FailedScreeningReasons from "@/components/BarGraphs/FailedScreeningReasons";
 import CardComp from "@/components/Card/card";
 import CustomTable from "@/components/CustomTableComponent/CustomTableComponent";
+import ApplicationTypeFilter from "@/components/FIlters/ApplicationTypeFilter";
+import CountryFilter from "@/components/FIlters/CountryFilter";
 import EmailFilter from "@/components/FIlters/EmailFilter";
 import FullNameFilter from "@/components/FIlters/FullNameFilter";
+import LangaugeSpokenFilter from "@/components/FIlters/LanguagesSpokenFilter";
+import RSFilter from "@/components/FIlters/RSFilter";
+import SkillAssessmentScoreFilter from "@/components/FIlters/SkillAssessmentScoreFilter";
 import TicketStatusFilter from "@/components/FIlters/TicketStatusFilter";
 import TypeOfTicketsFilter from "@/components/FIlters/TypeOfTicketsFilter";
 import AGAPassedScreening from "@/components/PieCharts/AGAPassedScreening";
@@ -32,11 +37,16 @@ function TicketsManagement() {
         <TypeOfTicketsFilter className=" bg-white flex items-center justify-between px-3" />
         <FullNameFilter className=" bg-white flex items-center justify-between px-3" />
         <EmailFilter className=" bg-white flex items-center justify-between px-3" />
+        <ApplicationTypeFilter className=" bg-white flex items-center justify-between px-3" />
+        <CountryFilter className=" bg-white flex items-center justify-between px-3" />
+        <LangaugeSpokenFilter className=" bg-white flex items-center justify-between px-3" />
+        <RSFilter className=" bg-white flex items-center justify-between px-3" />
+        <SkillAssessmentScoreFilter className=" bg-white flex items-center justify-between px-3" />
       </div>
       <Tabs>
-        <Tab data-label="All Tickets">
+        {/* <Tab data-label="All Tickets">
           <AllTicketsView />
-        </Tab>
+        </Tab> */}
         <Tab data-label="CS">
           <CSTable />
         </Tab>
