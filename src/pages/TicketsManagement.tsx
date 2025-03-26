@@ -1,8 +1,18 @@
+import Applications from "@/components/BarGraphs/Applications";
+import DailyScreeningCountPerRS from "@/components/BarGraphs/DailyScreeningCountPerRS";
+import FailedScreeningReasons from "@/components/BarGraphs/FailedScreeningReasons";
+import CardComp from "@/components/Card/card";
 import CustomTable from "@/components/CustomTableComponent/CustomTableComponent";
 import EmailFilter from "@/components/FIlters/EmailFilter";
 import FullNameFilter from "@/components/FIlters/FullNameFilter";
 import TicketStatusFilter from "@/components/FIlters/TicketStatusFilter";
 import TypeOfTicketsFilter from "@/components/FIlters/TypeOfTicketsFilter";
+import AGAPassedScreening from "@/components/PieCharts/AGAPassedScreening";
+import CGAPassedScreening from "@/components/PieCharts/CGAPassedScreening";
+import CSPassedScreening from "@/components/PieCharts/CSPassedScreening";
+import AGATable from "@/components/Tables/AGATable";
+import CGATable from "@/components/Tables/CGATable";
+import CSTable from "@/components/Tables/CSTable";
 import { Tab, Tabs } from "@/components/Tabs/Tabs";
 import { Check, ExternalLink, Filter } from "lucide-react";
 import { useState } from "react";
@@ -27,8 +37,17 @@ function TicketsManagement() {
         <Tab data-label="All Tickets">
           <AllTicketsView />
         </Tab>
+        <Tab data-label="CS">
+          <CSTable />
+        </Tab>
+        <Tab data-label="AGA">
+          <AGATable />
+        </Tab>
+        <Tab data-label="CGA">
+          <CGATable />
+        </Tab>
         <Tab data-label="Analytics">
-          <div>Analytics</div>
+          <AnalyticsView />
         </Tab>
       </Tabs>
     </div>
@@ -292,9 +311,9 @@ const AllTicketsView = () => {
           <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#69C920]  rounded-full py-2 text-sm font-normal bg-[white]">
             Pending
           </div>
-          <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#FF3434]  rounded-full py-2 text-sm font-normal bg-[white]">
+          {/* <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#FF3434]  rounded-full py-2 text-sm font-normal bg-[white]">
             Failed
-          </div>
+          </div> */}
         </div>
       </div>
       <div className=" w-full mt-5 ">
@@ -330,6 +349,75 @@ const AllTicketsView = () => {
             onClick: (item: any) => handleSelect(item),
           }}
         />
+      </div>
+    </div>
+  );
+};
+
+const AnalyticsView = () => {
+  const ticketOverviewData = [
+    {
+      title: "Assigned Tickets",
+      value: 436,
+      tooltip: "Total number of tickets assigned to the team",
+      color: "#69C920",
+    },
+    {
+      title: "Unassigned Tickets",
+      value: 120,
+      tooltip: "Total number of tickets not yet assigned",
+      color: "#FF3434",
+    },
+    {
+      title: "# of Passed Screening",
+      value: 350,
+      tooltip: "Number of candidates who passed the screening process",
+      color: "#69C920",
+    },
+    {
+      title: "# of Pending Candidates",
+      value: 86,
+      tooltip: "Number of candidates currently pending review",
+      color: "#69C920",
+    },
+    {
+      title: "# of Failed Screening",
+      value: 50,
+      tooltip: "Number of candidates who failed the screening process",
+      color: "#69C920",
+    },
+  ];
+
+  return (
+    <div className="w-full flex flex-col space-y-10 p-2">
+      <div className="flex flex-col space-y-3">
+        <span className="text-xl font-semibold text-[#163143]">
+          Tickets Overview
+        </span>
+        <div className="flex items-center align-middle justify-center space-x-4">
+          {ticketOverviewData.map((data) => (
+            <div className="w-1/5">
+              <CardComp
+                text={data.title}
+                value={data.value}
+                tooltip={data.tooltip}
+                color={data.color}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex gap-x-4">
+        <CSPassedScreening />
+        <AGAPassedScreening />
+        <CGAPassedScreening />
+      </div>
+      <div className="flex gap-x-6">
+        <FailedScreeningReasons />
+        <DailyScreeningCountPerRS />
+      </div>
+      <div className="w-full">
+        <Applications />
       </div>
     </div>
   );

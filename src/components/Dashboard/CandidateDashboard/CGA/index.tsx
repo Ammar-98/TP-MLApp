@@ -196,8 +196,6 @@ const CandidateTypeCGA = () => {
           questions={questions}
         />
         <CandidateDetailsView data={data} />
-
-       
       </div>
     </div>
   );
@@ -593,7 +591,7 @@ const CandidateDetailsView = ({ data }: any) => {
             />
           </div>
         </div> */}
-         <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal text-[#163143B2]"
             htmlFor="Ticket Name"
@@ -728,7 +726,9 @@ const CandidateDetailsView = ({ data }: any) => {
             className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
             name="Years of Graphic Design Experience"
             value={
-              data?.years_graphic_design_exp ? data.years_graphic_design_exp : "Not Provided"
+              data?.years_graphic_design_exp
+                ? data.years_graphic_design_exp
+                : "Not Provided"
             }
             readOnly
             type="text"
@@ -762,7 +762,9 @@ const CandidateDetailsView = ({ data }: any) => {
             className="bg-white  h-8 text-sm focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920] rounded-full font-normal text-[#163143]"
             name="Years of Video Editing Experience"
             value={
-              data?.years_video_editing_exp ? data.years_video_editing_exp : "Not Provided"
+              data?.years_video_editing_exp
+                ? data.years_video_editing_exp
+                : "Not Provided"
             }
             readOnly
             type="text"
@@ -783,7 +785,6 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
-
 
         <div className=" flex flex-col gap-y-2">
           <Label
@@ -978,21 +979,6 @@ const CandidateDetailsView = ({ data }: any) => {
           />
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div className=" flex flex-col gap-y-2">
           <Label
             className="text-sm font-normal  text-[#163143B2]"
@@ -1005,27 +991,6 @@ const CandidateDetailsView = ({ data }: any) => {
             {data?.previous_exp ? data.previous_exp : "Not Provided"}
           </div>
         </div>
-
-
-
-
-       
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
 
         <div className=" flex flex-col gap-y-2">
           <Label
@@ -1059,21 +1024,6 @@ const CandidateDetailsView = ({ data }: any) => {
             type="text"
           />
         </div>
-
-       
-
-       
-        
-        
-        
-      
-
-        
-        
-       
-       
-        
-       
       </div>
     </div>
   );
