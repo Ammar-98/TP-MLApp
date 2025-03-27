@@ -188,7 +188,12 @@ const Header = ({ refetch }: ChildProps) => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Info width={18} height={18} color="#69C920" />
+                  <Info
+                    className="cursor-pointer"
+                    width={18}
+                    height={18}
+                    color="#69C920"
+                  />
                   {/* <Button variant="outline">Hover</Button> */}
                 </TooltipTrigger>
                 <TooltipContent className="bg-[#163143] text-white">
