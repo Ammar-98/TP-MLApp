@@ -91,10 +91,6 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
       console.log("question_4_Score", question_4_Score);
       console.log("question_5_Score", question_5_Score);
 
-
-
-
-
       try {
         const res = await fetch(
           `${import.meta.env.VITE_BACKEND_BASE_URL}/candidate/${
@@ -172,8 +168,6 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
       console.log("question_4_Score", question_4_Score);
       console.log("question_5_Score", question_5_Score);
 
-
-
       try {
         const res = await fetch(
           `${import.meta.env.VITE_BACKEND_BASE_URL}/candidate/${
@@ -209,7 +203,7 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
         );
 
         // console.log('candidate_Type', candidate_Type)
-        
+
         // console.log('body', {
         //   question1_score: question_1_Score,
         //   question2_score: question_2_Score,
@@ -248,6 +242,7 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
     <Dialog open={open} onOpenChange={setopen}>
       <DialogTrigger asChild>
         <button
+          disabled
           // className={
           //   'bg-gradient-to-r  focus:outline-none from-[#6bf4a4] from-0% to-[#34ceff] to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
           // }
@@ -256,7 +251,7 @@ export function InviteToHireFlixButton({ refetch }: ChildProps) {
           }
           style={{ minWidth: "7vw", justifyContent: "center" }}
         >
-       Invite to Hireflix
+          Invite to Hireflix
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] ">

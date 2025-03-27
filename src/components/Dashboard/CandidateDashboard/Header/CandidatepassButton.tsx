@@ -62,7 +62,7 @@ export function CandidatePassButton({ refetch }: ChildProps) {
     console.log("candidate_id_cga", candidate_id_cga);
     console.log("candidate_id_aga", candidate_id_aga);
 
-    console.log('candidate_Type', candidate_Type)
+    console.log("candidate_Type", candidate_Type);
 
     if (candidate_Type === "CS") {
       if (question1_Result != "") {
@@ -92,10 +92,6 @@ export function CandidatePassButton({ refetch }: ChildProps) {
       console.log("question_3_Score", question_3_Score);
       console.log("question_4_Score", question_4_Score);
       console.log("question_5_Score", question_5_Score);
-
-
-
-
 
       try {
         const res = await fetch(
@@ -174,8 +170,6 @@ export function CandidatePassButton({ refetch }: ChildProps) {
       console.log("question_4_Score", question_4_Score);
       console.log("question_5_Score", question_5_Score);
 
-
-
       try {
         const res = await fetch(
           `${import.meta.env.VITE_BACKEND_BASE_URL}/candidate/${
@@ -237,6 +231,7 @@ export function CandidatePassButton({ refetch }: ChildProps) {
     <Dialog open={open} onOpenChange={setopen}>
       <DialogTrigger asChild>
         <button
+          disabled
           // className={
           //   'bg-gradient-to-r  focus:outline-none from-[#6bf4a4] from-0% to-[#34ceff] to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
           // }

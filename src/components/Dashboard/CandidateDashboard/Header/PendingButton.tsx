@@ -85,10 +85,9 @@ export function PendingButton({ refetch }: ChildProps) {
     let question_3_Score = question3_ML_Result;
     let question_4_Score = question4_ML_Result;
     let question_5_Score = question5_ML_Result;
-    console.log('candidate_id_cs', candidate_id_cs)
-    console.log('candidate_id_cga', candidate_id_cga)
-    console.log('candidate_id_aga', candidate_id_aga)
-
+    console.log("candidate_id_cs", candidate_id_cs);
+    console.log("candidate_id_cga", candidate_id_cga);
+    console.log("candidate_id_aga", candidate_id_aga);
 
     if (candidate_Type === "CS") {
       // const containsZeroInCSQuestions = [
@@ -114,8 +113,6 @@ export function PendingButton({ refetch }: ChildProps) {
         question_5_Score = Number(question5_Result);
       }
       try {
-       
-
         const res = await fetch(
           `${import.meta.env.VITE_BACKEND_BASE_URL}/pending/candidate/${
             candidate_Type === "CS"
@@ -193,7 +190,6 @@ export function PendingButton({ refetch }: ChildProps) {
         question_3_Score = Number(question3_Result);
       }
       try {
-        
         const res = await fetch(
           `${import.meta.env.VITE_BACKEND_BASE_URL}/pending/candidate/${
             candidate_Type === "CS"
@@ -266,6 +262,7 @@ export function PendingButton({ refetch }: ChildProps) {
     <Dialog open={open} onOpenChange={setopen}>
       <DialogTrigger asChild>
         <button
+          disabled
           // className={
           //   'bg-gradient-to-r  focus:outline-none from-[#8800f3] from-0% to-red-500 to-100% text-white text-sm  flex items-center gap-x-2 rounded-sm py-1 px-3 '
           // }

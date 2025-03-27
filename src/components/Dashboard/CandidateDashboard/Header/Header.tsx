@@ -8,6 +8,7 @@ import {
   ChevronLeftCircle,
   ArrowUpWideNarrow,
   ArrowDownWideNarrow,
+  Info,
 } from "lucide-react";
 
 import { Progress } from "@/components/ui/progress";
@@ -19,6 +20,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { PendingButton } from "./PendingButton";
+import { FailCandidateButton } from "./FailCandidateButton";
+import { CandidatePassButton } from "./CandidatepassButton";
+import { InviteToHireFlixButton } from "./InviteToHireFlix";
 
 interface ChildProps {
   refetch: () => Promise<any>; // Define the prop type for the refetch function
@@ -179,10 +184,30 @@ const Header = ({ refetch }: ChildProps) => {
             value={(data?.total_graded / data?.total_assigned) * 100}
             className=" w-96 bg-gray-400 h-2"
           />
-          <span className=" text-[#1ea656] font-semibold text-sm">
-            {data?.total_graded}/{data?.total_assigned}
-          </span>
+          <div className="flex items-center align-middle gap-x-2">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Info width={18} height={18} color="#69C920" />
+                  {/* <Button variant="outline">Hover</Button> */}
+                </TooltipTrigger>
+                <TooltipContent className="bg-[#163143] text-white">
+                  <p>This is the Total Count of CS, AGA, and CGA</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <span className=" text-[#163143] font-semibold text-sm">
+              {data?.total_graded}/{data?.total_assigned}
+            </span>
+          </div>
         </div>
+      </div>
+
+      <div className="flex w-full gap-x-2 items-center justify-end">
+        <PendingButton refetch={refetch} />
+        <FailCandidateButton refetch={refetch} />
+        <CandidatePassButton refetch={refetch} />
+        <InviteToHireFlixButton refetch={refetch} />
       </div>
     </header>
   );

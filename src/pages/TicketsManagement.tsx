@@ -2,7 +2,6 @@ import Applications from "@/components/BarGraphs/Applications";
 import DailyScreeningCountPerRS from "@/components/BarGraphs/DailyScreeningCountPerRS";
 import FailedScreeningReasons from "@/components/BarGraphs/FailedScreeningReasons";
 import CardComp from "@/components/Card/card";
-import CustomTable from "@/components/CustomTableComponent/CustomTableComponent";
 import ApplicationTypeFilter from "@/components/FIlters/ApplicationTypeFilter";
 import CountryFilter from "@/components/FIlters/CountryFilter";
 import EmailFilter from "@/components/FIlters/EmailFilter";
@@ -19,8 +18,7 @@ import AGATable from "@/components/Tables/AGATable";
 import CGATable from "@/components/Tables/CGATable";
 import CSTable from "@/components/Tables/CSTable";
 import { Tab, Tabs } from "@/components/Tabs/Tabs";
-import { Check, ExternalLink, Filter } from "lucide-react";
-import { useState } from "react";
+import { Filter } from "lucide-react";
 
 function TicketsManagement() {
   return (
