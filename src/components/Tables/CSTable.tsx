@@ -14,7 +14,7 @@ export default function CSTable() {
     {
       name: "RS (Vetter)",
       width: 150,
-      sticky: false,
+      sticky: true,
       keyword: "rsVetter",
       sorting: true,
     },
@@ -192,6 +192,11 @@ export default function CSTable() {
       sticky: false,
       keyword: "voiceIntroductionLink",
       sorting: true,
+      child: (item: any) => (
+        <div className="text-[#4285F4] cursor-pointer underline">
+          {item.voiceIntroductionLink}
+        </div>
+      ),
     },
     {
       name: "Speed Test Link",
@@ -199,6 +204,11 @@ export default function CSTable() {
       sticky: false,
       keyword: "speedTestLink",
       sorting: true,
+      child: (item: any) => (
+        <div className="text-[#4285F4] cursor-pointer underline">
+          {item.speedTestLink}
+        </div>
+      ),
     },
     {
       name: "Application Resume Link",
@@ -206,6 +216,11 @@ export default function CSTable() {
       sticky: false,
       keyword: "applicationResumeLink",
       sorting: true,
+      child: (item: any) => (
+        <div className="text-[#4285F4] cursor-pointer underline">
+          {item.applicationResumeLink}
+        </div>
+      ),
     },
   ];
 
@@ -559,18 +574,18 @@ export default function CSTable() {
 
   return (
     <div>
-      <div className=" flex w-full justify-between">
+      <div className=" flex w-full justify-between p-2">
         <div className=" flex items-center gap-3">
           <span className=" text-xl font-semibold">Overview</span>
-          <div className=" w-[160px]  cursor-pointer flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[white]">
+          <div className=" w-[160px] opacity-50  flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[white]">
             Select RS
           </div>
-          <div className=" w-[160px] cursor-pointer flex items-center justify-center border  rounded-full py-2 text-sm font-normal bg-[#69C920] text-[white]">
+          <div className=" w-[160px] opacity-50 flex items-center justify-center  rounded-full py-2 text-sm font-normal bg-[#69C920] text-[white]">
             Apply
           </div>
         </div>
         <div className=" flex items-center gap-2 mr-4">
-          <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#69C920]  rounded-full py-2 text-sm font-normal bg-[white]">
+          <div className="w-[120px] opacity-50 flex items-center justify-center border border-[#69C920]  rounded-full py-2 text-sm font-normal bg-[white]">
             Pending
           </div>
           {/* <div className="w-[120px] cursor-pointer flex items-center justify-center border border-[#FF3434]  rounded-full py-2 text-sm font-normal bg-[white]">
