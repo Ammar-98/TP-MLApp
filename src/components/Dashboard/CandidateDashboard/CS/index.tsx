@@ -691,6 +691,39 @@ const CandidateTypeCA = () => {
                 type="text"
               />
             </div>
+            
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="language">
+               Language
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="language"
+                value={
+                  data?.language
+                    ? data.language
+                    : "Not Provided"
+                }
+                readOnly
+                type="text"
+              />
+            </div>
+            <div className=" flex flex-col gap-y-2">
+              <Label className="text-sm" htmlFor="device_processor_generation">
+               Device Processor Generation
+              </Label>
+              <Input
+                className="bg-white h-9 text-[#808080] focus-visible:ring-offset-0 drop-shadow-md focus-visible:ring-[#69C920]"
+                name="device_processor_generation"
+                value={
+                  data?.device_processor_generation
+                    ? data.device_processor_generation
+                    : "Not Provided"
+                }
+                readOnly
+                type="text"
+              />
+            </div>
           </div>
         </section>
         <GradingRubicSectionCS />
