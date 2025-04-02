@@ -305,9 +305,9 @@ export function FailCandidateButton({ refetch }: ChildProps) {
                         <SelectValue placeholder='Failing Reason' />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className=' max-h-[370px] overflow-auto'>
+                    <SelectContent className=' max-h-[280px] overflow-auto '>
                       {failingReasons.map((reason) => (
-                        <SelectItem className='' key={reason} value={reason}>
+                        <SelectItem className=' cursor-pointer' key={reason} value={reason}>
                           {reason}
                         </SelectItem>
                       ))}

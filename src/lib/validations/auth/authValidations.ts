@@ -28,7 +28,8 @@ export const failCandidateFormSchema = z.object({
     "No Relevant AGA XP",
     "No Relevant CGA XP",
     "Voice Intro - Poor Communication Skills",
-    'Not Rehireable - Integrity Issue'
+    'Not Rehireable - Integrity Issue',
+    'Did Not Meet Device Specifications'
   ]),
 });
 export const pendingCandidateFormSchema = z.object({
