@@ -6,7 +6,36 @@ import AppContext from "@/context/AppContext";
 import { useFetchCGATableData } from "@/hooks/useFetchCGATableData";
 
 export default function CGATable() {
+
+  const [selected, setselected] = useState<any[]>([]);
+
   const ColumnData = [
+
+    {
+      name: "",
+      width: 100,
+      keyword: "db_created_at",
+      child: (item: any) => {
+        return (
+          <div
+            className={` overflow-hidden flex items-center justify-center flex-wrap  `}
+          >
+            <div
+              onClick={() => handleSelect(item)}
+              className={` w-5 h-5 ${
+                selected.includes(item)
+                  ? " bg-[#69C920]"
+                  : "bg-white border-2 border-slate-400"
+              }  rounded border flex items-center justify-center cursor-pointer `}
+            >
+              {selected.includes(item) && <Check color="white" size={20} />}
+            </div>
+          </div>
+        );
+      },
+      sticky: true,
+      sorting: false,
+    },
     {
       name: "Ticket Name",
       width: 200,
@@ -472,7 +501,7 @@ export default function CGATable() {
   //   },
   // ];
 
-  const [selected, setselected] = useState<any[]>([]);
+
 
   const handleSelect = (item: any) => {
     let temp = [...selected];
