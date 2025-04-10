@@ -10,7 +10,8 @@ const getData = async (
   selectedEmail: any,
   selectedLanguageSpoken: any,
   selectedRS: any,
-  selectedSkillAssessmentScore: any
+  selectedSkillAssessmentScore: any,
+  selectedTicketStatus: any
 ) => {
   try {
     const token = localStorage.getItem("talentPOP_ML_App_Token");
@@ -43,6 +44,11 @@ const getData = async (
           )
         : [];
 
+    const selectedTicketStatusProps =
+      selectedTicketStatus.length > 0
+        ? selectedTicketStatus?.map((item: any) => `&ticket_status=${item}`)
+        : [];
+
     const url = `${
       import.meta.env.VITE_BACKEND_BASE_URL
     }/reports/cga-table?page=${currentpage}&page_size=10${selectedCountryProps?.join(
@@ -51,7 +57,7 @@ const getData = async (
       ""
     )}${selectedRSProps?.join("")}${selectedSkillAssessmentScoreProps?.join(
       ""
-    )}`;
+    )}${selectedTicketStatusProps?.join("")}`;
 
     const resp = await axios.get(url, config);
     console.log("resp.data", resp.data);
@@ -79,6 +85,7 @@ export const useFetchCGATableData = (
     selectedLanguageSpoken,
     RSFilter,
     selectedSkillAssessmentScore,
+    selectedTicketStatus,
   } = useContext(AppContext);
 
   return useQuery({
@@ -92,6 +99,7 @@ export const useFetchCGATableData = (
       selectedLanguageSpoken,
       RSFilter,
       selectedSkillAssessmentScore,
+      selectedTicketStatus,
     ],
     queryFn: () =>
       getData(
@@ -101,7 +109,8 @@ export const useFetchCGATableData = (
         selectedEmail,
         selectedLanguageSpoken,
         RSFilter,
-        selectedSkillAssessmentScore
+        selectedSkillAssessmentScore,
+        selectedTicketStatus
       ),
     enabled: !!currentpage,
   });
