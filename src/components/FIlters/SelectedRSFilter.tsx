@@ -6,7 +6,7 @@ import { Check, ChevronDown, Search, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
 // import { useFetchClientFilterData } from "../../hooks/useFetchClientFilterData.tsx";
 
-export default function TypeOfTicketsFilter({ className }: any) {
+export default function SelectedRSFilter({ className }: any) {
   const [serachQuery, setserachQuery] = useState("");
   const [openDropDown, setopenDropDown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -102,9 +102,9 @@ export default function TypeOfTicketsFilter({ className }: any) {
     <div className="relative" ref={dropdownRef}>
       <div
         onClick={() => setopenDropDown(!openDropDown)}
-        className={`border ${className} h-9 rounded-full text-sm flex items-center justify-center  cursor-pointer font-poppins`}
+        className={`border ${className} rounded-full text-sm flex items-center justify-center  cursor-pointer font-poppins`}
       >
-        <div className=" mr-1  font-[300]">Type Of Tickets</div>
+        <div className=" mr-1  font-[300]">SelectRS</div>
         {selectedClients.length > 0 && (
           <div className=" bg-[#69C920] border text-[white]  font-medium text-[12px] mx-1 rounded-full w-[20px] flex h-[20px]  items-center justify-center">
             {selectedClients.length}

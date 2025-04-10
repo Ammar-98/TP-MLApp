@@ -17,6 +17,7 @@ import CandidateTypeCA from "./components/Dashboard/CandidateDashboard/CS/index.
 import CandidateTypeCGA from "./components/Dashboard/CandidateDashboard/CGA/index.tsx";
 import CandidateTypeAGA from "./components/Dashboard/CandidateDashboard/AGA/index.tsx";
 import TicketsManagement from "./pages/TicketsManagement.tsx";
+import AppState from "./context/AppState.tsx";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -100,9 +101,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <Toaster />
-    </QueryClientProvider>
+    <AppState>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <Toaster />
+      </QueryClientProvider>
+    </AppState>
   </React.StrictMode>
 );
